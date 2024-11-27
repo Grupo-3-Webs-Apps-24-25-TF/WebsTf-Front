@@ -1,0 +1,41 @@
+h2 {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.36px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+form label {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+button {
+    width: 365px;
+    height: 34px;
+    top: 402px;
+    left: 124px;
+    background-color: #838CF1;
+    border-radius: 50px;
+    border: none;
+}
+
+#rec01 {
+    overflow: hidden;
+    background: #AFB3FF;
+    width: 553.74px;
+    height: 131.21px;
+
+    gap: 0px;
+    border-radius: 105.53px;
+    transform: rotate(41.1deg) translate(300px, 300px);
+    transform-origin: bottom left; /* Ajusta el origen de la rotación */
+}
