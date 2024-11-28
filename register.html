@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos Escuela Steam</title>
-    <link rel="stylesheet" href="assets/css/loginStyle.css">
-    <script src="/assets/js/script.js"></script>
+    <title>Eventos Escuela Steam - Register</title>
+    <link rel="stylesheet" href="assets/css/registerStyle.css">
 </head>
 <body>
-    
     <h1>STEAM Exploration Events</h1>
-    <h2>Welcome, Student</h2>
     <form>
+        <label for="FullName">Full name:</label>
+        <input type="text" id="txtFullName" name="fullName" required>
+
         <label for="Username">Username:</label>
         <input type="text" id="txtUsername" name="username" required>
     
         <label for="Password">Password:</label>
         <input type="text" id="txtPassword" name="password" required>
 
-        <button>Login</button>
+        <label for="ConfirmPassword">Confirm password:</label>
+        <input type="text" id="txtConfirmPassword" name="confimPassword" required>
+
+        <button href="#">Register</button>
     </form> 
-    <img src="/assets/images/Laptop01.png" id="laptop01">
-    <p>Don't have an account?<div id="signUp"><a href="/register.html">Sign Up</a></div></p>
+    <img src="/assets/images/Laptop02.png" id="laptop02">
+    <p>Already have an account?<div id="logIn"><a href="/register.html">Log In</a></div></p>
     <div class="socialIcons">
         <a href="https://www.facebook.com/UnivEuropea/?locale=es_ES" target="_blank"><img src="assets/images/iconFacebook.svg" alt="Icono Facebook"></a>
         <a href="https://api.whatsapp.com/send/?phone=%2B34648203802&text&type=phone_number&app_absent=0" target="_blank"><img src="assets/images/iconWhatsApp.svg" alt="Icono WhatsApp"></a>
@@ -29,6 +32,5 @@
     </div>
     <figure id="rec01"></figure>
     <figure id="rec02"></figure>
-    <figure id="rec03"></figure>
 </body>
 </html>
