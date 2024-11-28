@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos Escuela Steam</title>
     <link rel="stylesheet" href="assets/css/loginStyle.css">
-    <script src="/assets/js/script.js"></script>
 </head>
 <body>
-    
     <h1>STEAM Exploration Events</h1>
     <h2>Welcome, Student</h2>
-    <form>
+    <div class="forms">
         <label for="Username">Username:</label>
         <input type="text" id="txtUsername" name="username" required>
     
         <label for="Password">Password:</label>
         <input type="text" id="txtPassword" name="password" required>
 
-        <button>Login</button>
-    </form> 
+        <button id="btnLogin">Login</button>
+    </div> 
     <img src="/assets/images/Laptop01.png" id="laptop01">
     <p>Don't have an account?<div id="signUp"><a href="/register.html">Sign Up</a></div></p>
     <div class="socialIcons">
@@ -30,5 +28,7 @@
     <figure id="rec01"></figure>
     <figure id="rec02"></figure>
     <figure id="rec03"></figure>
+
+    <script src="/assets/js/loginScript.js"></script>
 </body>
 </html>

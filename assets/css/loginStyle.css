@@ -70,7 +70,7 @@ h2 {
     justify-content: left;
 }
 
-form {
+.forms {
     grid-column: 2 / 6;
     grid-row: 3 / 5;
     display: flex;
@@ -79,7 +79,7 @@ form {
     gap: 5%;
 }
 
-form label {
+.forms label {
     font-family: "Inter";
     font-size: 1em;
     font-weight: 300;
@@ -87,14 +87,14 @@ form label {
     grid-row: 5;
 }
 
-form input {
+.forms input {
     margin-bottom: 2%;
     border: 1px solid #656ED3;
     border-radius: 50px;
     padding: 1.5%;
 }
 
-form button {
+.forms button {
     color: rgb(219, 218, 218);
     font-size: "Inter";
     font-size: 1em;

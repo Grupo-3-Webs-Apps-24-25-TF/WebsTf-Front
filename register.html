@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>STEAM Exploration Events</h1>
-    <form>
+    <div class="forms">
         <label for="FullName">Full name:</label>
         <input type="text" id="txtFullName" name="fullName" required>
 
@@ -21,8 +21,8 @@
         <label for="ConfirmPassword">Confirm password:</label>
         <input type="text" id="txtConfirmPassword" name="confimPassword" required>
 
-        <button href="#">Register</button>
-    </form> 
+        <button href="#" id="btnRegister">Register</button>
+    </div> 
     <img src="/assets/images/Laptop02.png" id="laptop02">
     <p>Already have an account?<div id="logIn"><a href="/register.html">Log In</a></div></p>
     <div class="socialIcons">
@@ -32,5 +32,7 @@
     </div>
     <figure id="rec01"></figure>
     <figure id="rec02"></figure>
+
+    <script src="/assets/js/registerScript.js"></script>
 </body>
 </html>
