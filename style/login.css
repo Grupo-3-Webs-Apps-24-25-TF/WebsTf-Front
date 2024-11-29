@@ -125,8 +125,7 @@
   /* Configuramos la tipografía para toda la web */
 
 
-
-/* Animación y disposición */
+/* STYLE LOGIN  */
 .cont{
     background-color: var(--color-primario-purple-dark);
 }
@@ -141,7 +140,7 @@
     overflow: hidden;
 }
 
-/* Contenedor con la imagen de fondo */
+
 .cont__inside{
     width: 50%;
     height: 100vh;
@@ -153,7 +152,12 @@
 
 }
 
-/* Título de registro */
+.cont__img{
+    background-image: url(assets/img_frijolito.svg);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: 19rem auto; /* TRUCO PARA INSERTAR IMG EN UN DIV (REM AUTO) &,( % AUTO PARA BG) */
+}
 .continside__login{
     font-size: clamp(.3rem, 100vw, 1.8rem);
     margin-bottom: 2em;
@@ -161,13 +165,11 @@
     color: var(--color-secundario-purple-light);
     letter-spacing: .1em;
 }
-
-/* Estilos del formulario */
 .cont__form{
     /* background-color: #656ED3; */
     width: 60%;
 }
-/* Ajustamos los inputs */
+
 .contform__imput{
     width: 100%;
     border: 1.6px solid var(--color-primario-purple-dark);
@@ -176,23 +178,30 @@
 
 }
 
+
+
 .contform__imput:focus {
     outline: 0px solid var(--color-primario-purple-dark);
     background-color: transparent;
 
 }
-
-.contform__input::placeholder {
+.contform__imput::placeholder{
     opacity: .5;
+
 }
 
-.contform__input:focus::placeholder {
+.contform__imput:focus::placeholder {
     opacity: 0;
 }
 
-/* Estilo de la etiqueta del formulario */
-.contform__label {
+/* .contform__imput:not(:placeholder-shown) {
+    background-color: red; /* Fondo verde claro }
+*/
+
+
+.contform__label{
     position: relative;
+
 }
 .contform__label input{
     font-family: "sanFrancisco__light";
@@ -200,6 +209,33 @@
     font-weight: 100;   
 }
 
+.contform__view{
+    width: 2em;
+    min-height: 2em;
+    position: absolute;
+    /* background-color: red; */
+    top: 0.6em;
+    right: 0.6em;
+    background-image: url(/assets/eye_open.svg);
+    background-repeat: no-repeat;
+    background-size: 1.6em auto;
+    cursor: pointer;
+}
+
+
+.contform__view:checked{
+    width: 2em;
+    min-height: 2em;
+    position: absolute;
+    /* background-color: red; */
+    top: 0.6em;
+    right: 0.6em;
+    background-image: url(/assets/ojo2.svg);
+    background-repeat: no-repeat;
+    background-size: 1.6em auto;
+    cursor: pointer;
+
+}
 .contform__label:not(:last-child){
     margin-bottom: 1.4em;
 
@@ -216,7 +252,6 @@
     font-family: "sanFrancisco__bold";
     letter-spacing: .2em;
 }
-
 .contformlogin__div{
     color: var(--color-secundario-purple-light);
     background-color: var( --color-primario-purple-dark);
@@ -257,7 +292,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1.8em;
+    margin-top: 1.8em;
 
 }
 .contul__img{
@@ -270,7 +305,7 @@
     max-width: 1000px;
     width: 100vw;
     min-height: 100vh;
-    background-image: url(/FrontV2/assets/compufrejolito.svg);
+    background-image: url(/assets/login_pc.svg);
     background-repeat: no-repeat;
     background-position: center left;
     background-size: 42em auto;
@@ -280,111 +315,45 @@
     z-index: 1;
 }
 
-.contformlinks__login {
-    margin-left: .6em;
-    font-weight: 900;
-    color: var(--color-secundario-purple-light);
-}
-.contformlinks__login:hover{
-    color: var( --color-primario-purple-dark);;
-
-}
-
-
-/* Personalización del select */
-.contform__imput {
-    width: 100%;
-    padding: 0.8em 1.6em;
-    border-radius: 1.3em;
-    border: 1.6px solid var(--color-primario-purple-dark);
-    font-family: "sanFrancisco__light";
-    cursor: pointer;
-    appearance: none; /* Elimina el diseño por defecto del select */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    letter-spacing: .3em;
-    color: var(--color-secundario); /* Establece el color del texto */    
-}
-
-/* Flecha del select personalizada */
-.contform__view {
-    width: 2em;
-    height: 2em;
+.continsideimg__bg{
+    width: 80%;
+    min-height: 100vh;
+    background-color: var(--color-secundario-purple-light);
     position: absolute;
-    top: 0.6em;
-    right: 0.6em;
-    background-image: url('/FrontV2/assets/selector.svg'); /* Imagen de la flecha */
-    background-repeat: no-repeat;
-    background-size: 1.6em auto;
-    pointer-events: none; /* Desactivar el clic en el div para que solo funcione el select */
-    cursor: pointer;
-}
-
-/* Estilo cuando el select está en focus */
-/* .contform__imput:focus {
-    outline: none;
-    background-color: transparent;
-} */
-
-/* Estilo para la opción por defecto (placeholder) */
-.contform__imput option:disabled {
-    color: var(--color-secundario); 
-    opacity: 0.5; 
+    right: 0;
 }
 
 
-
-
-
-
-
-/* Medias queries para la versión responsive */
-@media (max-width: 1278px) {
-    .cont__inside__img {
+@media (max-width:1278px){
+    .cont__inside__img{
         left: -2.6em;
     }
+    
 }
-
-@media (max-width: 993px) {
-    .cont {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .cont__inside {
-        width: 100%;
-    }
-
-    .continside__none {
-        display: none;
-    }
-}
-
-@media (max-width: 935px) {
-    .cont__form {
-        width: 60%;
-    }
-}
-
-@media (max-width: 1900px) and (min-width: 780px) {
-    .cont__inside {
-        height: auto;
-        /* height: 100vh; */
-        margin-top: 44px;
-        margin-bottom: 44px;
-    }
-
-    .cont__inside__img {
-        background-size: 45em auto; /* Reducir el tamaño de la imagen de fondo */
-        left: -4.6em;
-        top: -5em;
-    }
-}
-
 @media (max-width:1559px){
     .cont__form{
         width: 60%;
     }
     
 }
+@media (max-width:993px){
+    .cont{
+        display: flex;
+        flex-direction: column;
+    }
 
+    .cont__inside{
+        width: 100%;
+    }
+    .continside__none{
+        display: none;
+    }
+}
+
+@media (max-width:935px){
+
+
+    .cont__form{
+        width: 60%;
+    }
+}
