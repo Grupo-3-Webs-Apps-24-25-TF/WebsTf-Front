@@ -270,7 +270,7 @@
     max-width: 1000px;
     width: 100vw;
     min-height: 100vh;
-    background-image: url(/assets/compufrejolito.svg);
+    background-image: url(../assets/compufrejolito.svg);
     background-repeat: no-repeat;
     background-position: center left;
     background-size: 42em auto;
