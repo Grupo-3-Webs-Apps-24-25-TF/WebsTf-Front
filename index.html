@@ -12,20 +12,17 @@
         <div class="cont__inside cont__img">
             <span class="cont__inside__login">INICIAR SESIÓN</span>
 
-            <!-- Contenedor de errores
-            <div id="error-message" class="error-message" style="color: red; display: none; margin-bottom: 10px; text-align: center;">
-            </div>-->
-
             <div>
                 <form autocomplete="off" action="#">
                     <label class="cont__form__label">
-                        <input class="cont__form__input" placeholder="Nombre" autocomplete="new-password"
-                        spellcheck="false" type="email" name="user_email">
+                        <input class="cont__form__input" placeholder="Usuario" id="username" required>
                     </label>
 
                     <label>
-                        <input class="cont__form__input" placeholder="Contraseña" type="password" id="password">
+                        <input class="cont__form__input" placeholder="Contraseña" type="password" id="password" required>
                     </label>
+
+                    <p id="error-message" class="error-message"></p>
 
                     <button class="cont__form__login" type="submit">
                         <span class="cont__form__login__div">

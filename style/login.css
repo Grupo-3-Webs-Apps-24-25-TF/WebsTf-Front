@@ -74,6 +74,14 @@ form, input, textarea, select, button, label {
     letter-spacing: .2em;
 }
 
+.error-message {
+    color: red;
+    display: none;
+    margin: 1em;
+    font-family: "sanFrancisco__Regular";
+    text-align: center;
+}
+
 .cont__form__login__div {
     color: var(--color-secundario-purple-light);
     background-color: var( --color-primario-purple-dark);
@@ -90,7 +98,7 @@ form, input, textarea, select, button, label {
 
 .cont__form__links {
     display: flex;
-    font-family: "sanFrancisco__Regular" ;
+    font-family: "sanFrancisco__Regular";
     letter-spacing: .1em;
 }
 
