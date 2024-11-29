@@ -1,0 +1,390 @@
+@font-face {
+    font-family: "sanFrancisco__bold";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Bold.otf) format("opentype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "sanFrancisco__Regular";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Regular.otf) format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "sanFrancisco__light";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Thin.otf) format("opentype");
+    font-display: swap;
+}
+
+:root{
+    --color-primario-purple-dark: #656ED3;
+    --color-secundario-purple-light: #afb3ff;
+    --color-tercearo-white: #e5e5e5;
+}
+
+
+    @media (prefers-color-scheme: dark) {
+    :root {
+    --color-primario: #f0f0f0;
+    --color-secundario: #000;
+    }
+    }
+    @media (prefers-contrast: high) {
+    :root {
+    --color-primario: #000;
+    --color-secundario: #f0f0f0;
+    }
+    }
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    vertical-align: baseline;
+    }
+    
+    img, picture, video, iframe, figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    -o-object-fit: cover;
+        object-fit: cover;
+    -o-object-position: center center;
+        object-position: center center;
+    }
+    
+    a {
+    display: block;
+    }
+
+    p a {
+    display: inline;
+    }
+
+    li {
+    list-style-type: none;
+    }
+
+    html {
+    scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+    }
+
+    blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none;
+    }
+
+    ::-moz-selection {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    }
+/* PARA SELECIONAR LOS TEXTO */
+    ::selection {
+    background-color: var(--color-primario-purple-dark);
+    color: var(--color-secundario-purple-light);
+    }
+
+    form, input, textarea, select, button, label {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    background-color: transparent;
+    display: block;
+    color: inherit;
+    -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+    }
+    
+    table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+
+    svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+    }
+    
+    /* (Probándolo, no usar en producción) En el caso de añadir una  */
+    /* p svg{
+        display: inline;
+        width: initial;
+  } */
+  /* Configuramos la tipografía para toda la web */
+
+
+
+/* Animación y disposición */
+.cont{
+    background-color: var(--color-primario-purple-dark);
+}
+
+.animation__cinco{
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-tercearo-white);
+    display: flex;
+    /* opacity: 0; */
+    /* transition: opacity .5s ease; */
+    overflow: hidden;
+}
+
+/* Contenedor con la imagen de fondo */
+.cont__inside{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+/* Título de registro */
+.continside__login{
+    font-size: clamp(.3rem, 100vw, 1.8rem);
+    margin-bottom: 2em;
+    font-family:"sanFrancisco__bold" ;
+    color: var(--color-secundario-purple-light);
+    letter-spacing: .1em;
+}
+
+/* Estilos del formulario */
+.cont__form{
+    /* background-color: #656ED3; */
+    width: 60%;
+}
+/* Ajustamos los inputs */
+.contform__imput{
+    width: 100%;
+    border: 1.6px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+
+}
+
+.contform__imput:focus {
+    outline: 0px solid var(--color-primario-purple-dark);
+    background-color: transparent;
+
+}
+
+.contform__input::placeholder {
+    opacity: .5;
+}
+
+.contform__input:focus::placeholder {
+    opacity: 0;
+}
+
+/* Estilo de la etiqueta del formulario */
+.contform__label {
+    position: relative;
+}
+.contform__label input{
+    font-family: "sanFrancisco__light";
+    letter-spacing: .3em;
+    font-weight: 100;   
+}
+
+.contform__label:not(:last-child){
+    margin-bottom: 1.4em;
+
+}
+
+.contform__login{
+    width: 100%;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    margin-bottom: 3.5em;
+    font-family: "sanFrancisco__bold";
+    letter-spacing: .2em;
+}
+
+.contformlogin__div{
+    color: var(--color-secundario-purple-light);
+    background-color: var( --color-primario-purple-dark);
+    background-size: 42rem auto;
+    padding: 1em 4em 1em 4em;
+    border-radius: 1.6em;
+    cursor: pointer;
+    transition: all .3s ease;
+    
+}
+.contformlogin__div:hover{
+    color:     var( --color-primario-purple-dark);
+    background-color: var(--color-secundario-purple-light); 
+}
+.contform__enlaces{
+    margin-bottom: .7em;
+}
+
+.contform__links{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family:"sanFrancisco__Regular" ;
+    letter-spacing: .1em;
+}
+
+.contformlinks__register{
+    margin-left: .6em;
+    font-weight: 900;
+    color: var(--color-secundario-purple-light);
+}
+.contformlinks__register:hover{
+    color: var( --color-primario-purple-dark);;
+
+}
+
+.cont__ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.8em;
+
+}
+.contul__img{
+    max-width: 100%;
+}
+.contul__li:not(:last-child){
+    margin-right: 1.4em;
+}
+.cont__inside__img{
+    max-width: 1000px;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url(/FrontV2/assets/compufrejolito.svg);
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: 42em auto;
+    background-color: transparent;
+    position: absolute;
+    left: -4.6em;
+    z-index: 1;
+}
+
+.contformlinks__login {
+    margin-left: .6em;
+    font-weight: 900;
+    color: var(--color-secundario-purple-light);
+}
+.contformlinks__login:hover{
+    color: var( --color-primario-purple-dark);;
+
+}
+
+
+/* Personalización del select */
+.contform__imput {
+    width: 100%;
+    padding: 0.8em 1.6em;
+    border-radius: 1.3em;
+    border: 1.6px solid var(--color-primario-purple-dark);
+    font-family: "sanFrancisco__light";
+    cursor: pointer;
+    appearance: none; /* Elimina el diseño por defecto del select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    letter-spacing: .3em;
+    color: var(--color-secundario); /* Establece el color del texto */    
+}
+
+/* Flecha del select personalizada */
+.contform__view {
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: 0.6em;
+    right: 0.6em;
+    background-image: url('/FrontV2/assets/selector.svg'); /* Imagen de la flecha */
+    background-repeat: no-repeat;
+    background-size: 1.6em auto;
+    pointer-events: none; /* Desactivar el clic en el div para que solo funcione el select */
+    cursor: pointer;
+}
+
+/* Estilo cuando el select está en focus */
+/* .contform__imput:focus {
+    outline: none;
+    background-color: transparent;
+} */
+
+/* Estilo para la opción por defecto (placeholder) */
+.contform__imput option:disabled {
+    color: var(--color-secundario); 
+    opacity: 0.5; 
+}
+
+
+
+
+
+
+
+/* Medias queries para la versión responsive */
+@media (max-width: 1278px) {
+    .cont__inside__img {
+        left: -2.6em;
+    }
+}
+
+@media (max-width: 993px) {
+    .cont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cont__inside {
+        width: 100%;
+    }
+
+    .continside__none {
+        display: none;
+    }
+}
+
+@media (max-width: 935px) {
+    .cont__form {
+        width: 60%;
+    }
+}
+
+@media (max-width: 1900px) and (min-width: 780px) {
+    .cont__inside {
+        height: auto;
+        /* height: 100vh; */
+        margin-top: 44px;
+        margin-bottom: 44px;
+    }
+
+    .cont__inside__img {
+        background-size: 45em auto; /* Reducir el tamaño de la imagen de fondo */
+        left: -4.6em;
+        top: -5em;
+    }
+}
+
+@media (max-width:1559px){
+    .cont__form{
+        width: 60%;
+    }
+    
+}
+
