@@ -1,29 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Endpoint del backend
-    const API_URL = "http://localhost:3000/api/register"; 
+    const API_URL = "https://www.amoamel.com/web/api/users/register";
 
-    // Selección del formulario
-    const form = document.querySelector("#registerForm");
+    const form = document.querySelector("form");
     const errorMessage = document.getElementById("error-message");
 
-    // Manejar el envío del formulario
     form.addEventListener("submit", async (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
 
-        // Obtener valores de los campos
-        const nombre = form.Nombre.value.trim();
-        const apellido = form.Apellido.value.trim();
-        const username = form.username.value.trim();
-        const email = form.user_email.value.trim();
-        const password = form.password.value.trim();
-        const confirmPassword = form.confirmPassword.value.trim();
-        const rol = form.rol.value; 
-
-        // Validaciones
-        if (!nombre || !apellido || !username || !email || !password || !confirmPassword || !rol) {
-            showError("Por favor, completa todos los campos.");
-            return;
-        }
+        const name = form.Nombre.value.trim();
+        const lastName = form.Apellido.value.trim();
+        const username = form.Username.value.trim();
+        const email = form.Email.value.trim();
+        const password = form.Password.value.trim();
+        const confirmPassword = form.ConfirmPassword.value.trim();
+        const category = form.Categoria.value;
 
         if (password !== confirmPassword) {
             showError("Las contraseñas no coinciden.");
@@ -35,11 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Crear el objeto con los datos del formulario
-        const registerData = { nombre, apellido, username, email, password, rol };
+        const registerData = { name, lastName, username, email, password, category };
 
         try {
-            // Enviar datos al backend mediante fetch
             const response = await fetch(API_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -47,24 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (response.ok) {
-                const result = await response.json();
-                alert("Cuenta creada exitosamente!");
-                window.location.href = "/login";  
-            } else if (response.status === 400) {
-                showError("Datos inválidos. Verifica tu información.");
-            } else if (response.status === 500) {
-                showError("Error del servidor. Inténtalo más tarde.");
+                window.location.href = "index.html";
             } else {
                 const error = await response.json();
                 showError(`Error: ${error.message}`);
             }
         } catch (err) {
-            console.error("Error de conexión:", err);
             showError("No se pudo conectar al servidor. Verifica tu conexión.");
         }
     });
 
-    // Función para mostrar mensajes de error
     const showError = (message) => {
         errorMessage.textContent = message;
         errorMessage.style.display = "block";

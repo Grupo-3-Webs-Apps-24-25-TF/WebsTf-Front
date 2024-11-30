@@ -8,89 +8,63 @@
     <script src="js/register.js" defer></script>
 </head>
 <body>
-    <div class="cont">
-        <div class="animation__cinco">
-            <!-- Contenedor principal para el formulario -->
-            <div class="cont__inside cont__img">
-                <span class="continside__login">CREAR CUENTA</span>
+    <div class="animation__cinco">
+        <div class="cont__inside">
+            <span class="continside__login">CREAR CUENTA</span>
 
-                <div class="cont__form">
-                    <form autocomplete="off" action="#" id="registerForm">
-                        <!-- Campo para el nombre completo -->
-                        <label class="contform__label" for="#">
-                            <input type="text" id="txtNombre" name="Nombre" placeholder="Nombre" class="contform__imput" required>
-                        </label>
+            <div>
+                <form autocomplete="off" action="#">
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Nombre" id="Nombre" >
+                    </label>
 
-                        <label class="contform__label" for="#">
-                            <input type="text" id="txtApellido" name="Apellido" placeholder="Apellido" class="contform__imput" required>
-                        </label>
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Apellido" id="Apellido" >
+                    </label>
 
-                        <!-- Campo para el nombre de usuario -->
-                        <label class="contform__label" for="#">
-                            <input type="text" id="txtUsername" name="username" placeholder="Nombre de usuario" class="contform__imput" required>
-                        </label>
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Nombre de usuario" id="Username" >
+                    </label>
 
-                        <!-- Campo para seleccionar el rol -->
-                        <label class="contform__label">
-                            <!-- Campo select que incluye las opciones -->
-                            <select id="txtRol" name="rol" placeholder="Selecciona un rol" class="contform__imput" required>
-                                <option value="" disabled selected>Selecciona un rol</option>
-                                <option value="admin">Administrador</option>
-                                <option value="user">Usuario</option>
-                            </select>
-                            <!-- Icono que aparece sobre el select -->
-                            <div class="contform__view" id="toggleRoles"></div>
-                        </label>
-                        
+                    <label class="contform__label">
+                        <select class="contform__imput__select" id="Categoria" >
+                            <option value="" disabled selected>Selecciona un rol</option>
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Profesor">Profesor</option>
+                            <option value="Coordinador">Coordinador</option>
+                            <option value="Dirección">Dirección</option>
+                        </select>
+                    </label>
 
-                        <!-- Campo para seleccionar el rol -->
-                        <!-- <label class="contform__label" for="txtRol">
-                            <select id="txtRol" name="rol" class="contform__imput" required>
-                                <option value="admin">Administrador</option>
-                                <option value="user">Usuario</option>
-                            </select>
-                            <div class="contform__view"></div>
-                        </label> -->
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Correo electrónico" type="email" id="Email" >
+                    </label>
 
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Contraseña" type="password" id="Password" >
+                    </label>
 
-                        <label class="contform__label" for="#">
-                            <input type="email" id="txtCorreo" name="user_email" placeholder="Correo electrónico" class="contform__imput" required>
-                        </label>
+                    <label>
+                        <input class="contform__imput" placeholder="Confirmar contraseña" type="password" id="ConfirmPassword" >
+                    </label>
 
-                        <!-- Campo para la contraseña -->
-                        <label class="contform__label" for="#">
-                            <input type="password" id="txtPassword" name="password" placeholder="Contraseña" class="contform__imput" required>
-                        </label>
+                    <p id="error-message" class="error-message"></p>
 
-                        <!-- Campo para confirmar la contraseña -->
-                        <label class="contform__label" for="#">
-                            <input type="password" id="txtConfirmPassword" name="confirmPassword" placeholder="Confirmar contraseña" class="contform__imput" required>
-                        </label>
+                    <button class="contform__login" type="submit">
+                        <span class="contformlogin__div">
+                            REGISTRARSE
+                        </span>
+                    </button>
+                </form>
 
-                        <!-- Botón de registro -->
-                        <button class="contform__login">
-                            <div class="contformlogin__div">
-                                Registrarse
-                            </div>
-                        </button>
-                    </form>
-
-                    <ul>
-                        <li class="contform__enlaces">
-                            <p class="contform__links">¿Ya tienes una cuenta?
-                                <a class="contformlinks__login" href="index.html">Iniciar sesión</a>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
+                <p class="contform__links">
+                    ¿Ya tienes una cuenta?
+                    <a class="contformlinks__login" href='index.html'>Inicia Sesión</a>
+                </p>
             </div>
-
-            <!-- Imagen decorativa -->
-            <div class="cont__inside continside__none">
-                <div class="cont__inside__img"></div>
-                <div class="continsideimg__bg"></div>
-            </div>
-            
+        </div>
+        <div class="cont__inside continside__none">
+            <div class="cont__inside__img"></div>
         </div>
     </div>
 </body>
