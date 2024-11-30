@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
     const errorMessage = document.getElementById("error-message");
 
-    form.addEventListener("submit", async () => {
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
         const username = form.username.value.trim();
         const password = form.password.value.trim();
 
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const result = await response.json();
                 localStorage.setItem("role", result.role);
                 localStorage.setItem("token", result.token);
-                window.location.href = "../register.html";
+                window.location.href = "register.html";
             } else {
                 const error = await response.json();
                 showError(`Error: ${error.message}`);
