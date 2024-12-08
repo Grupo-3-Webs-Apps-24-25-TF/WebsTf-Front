@@ -1,38 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos Escuela Steam - Register</title>
-    <link rel="stylesheet" href="assets/css/registerStyle.css">
+    <title>REGISTER</title>
+    <link rel="stylesheet" href="style/register.css">
+    <script src="js/register.js" defer></script>
 </head>
 <body>
-    <h1>STEAM Exploration Events</h1>
-    <div class="forms">
-        <label for="FullName">Full name:</label>
-        <input type="text" id="txtFullName" name="fullName" required>
+    <div class="animation__cinco">
+        <div class="cont__inside">
+            <span class="continside__login">CREAR CUENTA</span>
 
-        <label for="Username">Username:</label>
-        <input type="text" id="txtUsername" name="username" required>
-    
-        <label for="Password">Password:</label>
-        <input type="text" id="txtPassword" name="password" required>
+            <div>
+                <form autocomplete="off" action="#">
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Nombre" id="Nombre" >
+                    </label>
 
-        <label for="ConfirmPassword">Confirm password:</label>
-        <input type="text" id="txtConfirmPassword" name="confimPassword" required>
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Apellido" id="Apellido" >
+                    </label>
 
-        <button href="#" id="btnRegister">Register</button>
-    </div> 
-    <img src="/assets/images/Laptop02.png" id="laptop02">
-    <p>Already have an account?<div id="logIn"><a href="/register.html">Log In</a></div></p>
-    <div class="socialIcons">
-        <a href="https://www.facebook.com/UnivEuropea/?locale=es_ES" target="_blank"><img src="assets/images/iconFacebook.svg" alt="Icono Facebook"></a>
-        <a href="https://api.whatsapp.com/send/?phone=%2B34648203802&text&type=phone_number&app_absent=0" target="_blank"><img src="assets/images/iconWhatsApp.svg" alt="Icono WhatsApp"></a>
-        <a href="https://universidadeuropea.com/contacto/" target="_blank"><img src="assets/images/iconTelegram.svg" alt="Icono Telegram"></a>
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Nombre de usuario" id="Username" >
+                    </label>
+
+                    <label class="contform__label">
+                        <select class="contform__imput__select" id="Categoria" >
+                            <option value="" disabled selected>Selecciona un rol</option>
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Profesor">Profesor</option>
+                            <option value="Coordinador">Coordinador</option>
+                            <option value="Dirección">Dirección</option>
+                        </select>
+                    </label>
+
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Correo electrónico" type="email" id="Email" >
+                    </label>
+
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Contraseña" type="password" id="Password" >
+                    </label>
+
+                    <label>
+                        <input class="contform__imput" placeholder="Confirmar contraseña" type="password" id="ConfirmPassword" >
+                    </label>
+
+                    <p id="error-message" class="error-message"></p>
+
+                    <button class="contform__login" type="submit">
+                        <span class="contformlogin__div">
+                            REGISTRARSE
+                        </span>
+                    </button>
+                </form>
+
+                <p class="contform__links">
+                    ¿Ya tienes una cuenta?
+                    <a class="contformlinks__login" href='index.html'>Inicia Sesión</a>
+                </p>
+            </div>
+        </div>
+        <div class="cont__inside continside__none">
+            <div class="cont__inside__img"></div>
+        </div>
     </div>
-    <figure id="rec01"></figure>
-    <figure id="rec02"></figure>
-
-    <script src="/assets/js/registerScript.js"></script>
 </body>
 </html>

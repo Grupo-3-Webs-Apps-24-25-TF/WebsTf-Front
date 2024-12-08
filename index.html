@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos Escuela Steam</title>
-    <link rel="stylesheet" href="assets/css/loginStyle.css">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="style/login.css">
+    <script src="js/login.js" defer></script>
 </head>
 <body>
-    <h1>STEAM Exploration Events</h1>
-    <h2>Welcome, Student</h2>
-    <div class="forms">
-        <label for="Username">Username:</label>
-        <input type="text" id="txtUsername" name="username" required>
-    
-        <label for="Password">Password:</label>
-        <input type="text" id="txtPassword" name="password" required>
+    <div class="animation__cinco">
+        <div class="cont__inside cont__img">
+            <span class="cont__inside__login">INICIAR SESIÓN</span>
 
-        <button id="btnLogin">Login</button>
-    </div> 
-    <img src="/assets/images/Laptop01.png" id="laptop01">
-    <p>Don't have an account?<div id="signUp"><a href="/register.html">Sign Up</a></div></p>
-    <div class="socialIcons">
-        <a href="https://www.facebook.com/UnivEuropea/?locale=es_ES" target="_blank"><img src="assets/images/iconFacebook.svg" alt="Icono Facebook"></a>
-        <a href="https://api.whatsapp.com/send/?phone=%2B34648203802&text&type=phone_number&app_absent=0" target="_blank"><img src="assets/images/iconWhatsApp.svg" alt="Icono WhatsApp"></a>
-        <a href="https://universidadeuropea.com/contacto/" target="_blank"><img src="assets/images/iconTelegram.svg" alt="Icono Telegram"></a>
+            <div>
+                <form autocomplete="off" action="#">
+                    <label class="cont__form__label">
+                        <input class="cont__form__input" placeholder="Usuario" id="username" required>
+                    </label>
+
+                    <label>
+                        <input class="cont__form__input" placeholder="Contraseña" type="password" id="password" required>
+                    </label>
+
+                    <p id="error-message" class="error-message"></p>
+
+                    <button class="cont__form__login" type="submit">
+                        <span class="cont__form__login__div">
+                            LOGIN
+                        </span>
+                    </button>
+                </form>
+
+                <p class="cont__form__links">
+                    ¿No tienes una cuenta?
+                    <a class="cont__form__links__register" href='register.html'>
+                        Registrate
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="cont__inside cont__inside__none">
+            <div class="cont__inside__img"></div>
+            <div class="cont__inside__img__bg"></div>
+        </div>
     </div>
-    <figure id="rec01"></figure>
-    <figure id="rec02"></figure>
-    <figure id="rec03"></figure>
-
-    <script src="/assets/js/loginScript.js"></script>
 </body>
 </html>

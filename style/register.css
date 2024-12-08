@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario-purple-dark: #656ED3;
+    --color-secundario-purple-light: #afb3ff;
+    --color-tercearo-white: #e5e5e5;
+}
+
+::selection {
+    background-color: var(--color-primario-purple-dark);
+    color: var(--color-secundario-purple-light);
+}
+
+.animation__cinco {
+    min-height: 100vh;
+    background-color: var(--color-tercearo-white);
+    display: flex;
+    overflow: hidden;
+}
+
+.cont__inside {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.continside__login {
+    font-size: clamp(.3rem, 100vw, 1.8rem);
+    margin-bottom: 2em;
+    font-family: "sanFrancisco__bold" ;
+    color: var(--color-secundario-purple-light);
+    letter-spacing: .1em;
+}
+
+form, input, textarea, select, button, label {
+    font-size: inherit;
+    background-color: transparent;
+    display: block;
+}
+
+.contform__label {
+    margin-bottom: 1.4em;
+}
+
+.contform__imput {
+    width: 100%;
+    border: 1px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+}
+
+.contform__imput__select {
+    width: 100%;
+    border: 1px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.contform__login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    font-family: "sanFrancisco__bold";
+    letter-spacing: .2em;
+}
+
+.error-message {
+    color: red;
+    display: none;
+    margin: 1em;
+    font-family: "sanFrancisco__Regular";
+    text-align: center;
+}
+
+.contformlogin__div {
+    color: var(--color-secundario-purple-light);
+    background-color: var( --color-primario-purple-dark);
+    padding: 1em 4em 1em 4em;
+    border-radius: 1.6em;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.contformlogin__div:hover {
+    color: var( --color-primario-purple-dark);
+    background-color: var(--color-secundario-purple-light);
+}
+
+.contform__links {
+    display: flex;
+    font-family: "sanFrancisco__Regular" ;
+    letter-spacing: .1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.contformlinks__login {
+    margin-left: .6em;
+    font-weight: 900;
+    color: var(--color-secundario-purple-light);
+}
+.contformlinks__login:hover {
+    color: var( --color-primario-purple-dark);;
+}
+
+@media (max-width: 993px) {
+    .cont__inside {
+        width: 100%;
+    }
+
+    .continside__none {
+        display: none;
+    }
+}
+
+.cont__inside__img {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url(../assets/compufrejolito.svg);
+    background-repeat: no-repeat;
+    background-position: center left;
+    position: absolute;
+    background-size: 45em auto;
+    left: -4.6em;
+    top: -5em;
+}
+
+@font-face {
+    font-family: "sanFrancisco__bold";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Bold.otf) format("opentype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "sanFrancisco__Regular";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Regular.otf) format("opentype");
+    font-display: swap;
+}
