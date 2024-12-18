@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Management</title>
+    <link rel="stylesheet" href="/assets/css/eventsManagement.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Side Bar -->
+    <nav class="sidebar close">
+        <header class="sideBarHeader">
+            <div class="imageText">
+                <span class="image">
+                    <img src="/assets/images/UEMLogo.jpg" alt="logo">
+                </span>
+
+                <div class="text HeaderText">
+                    <span class="name01">European University</span>
+                    <span class="name02">Of Madrid</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toogle'></i>
+        </header>
+
+        <div class="menuBar">
+            <div class="menu">
+                <ul class="menuLinks">
+                    <li class="navLink">
+                        <a href="#">
+                            <i class='bx bx-home-smile icon' ></i>
+                            <span class="text navText">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="navLink">
+                        <a href="#">
+                            <i class='bx bx-calendar-event icon' ></i>
+                            <span class="text navText">Events</span>
+                        </a>
+                    </li>
+                    <li class="navLink">
+                        <a href="#">
+                            <i class='bx bx-calendar-plus icon' ></i>
+                            <span class="text navText">Create Event</span>
+                        </a>
+                    </li>
+                    <li class="navLink">
+                        <a href="#">
+                            <i class='bx bx-user-circle icon' ></i>
+                            <span class="text navText">My Profile</span>
+                        </a>
+                    </li>
+                    <li class="navLink">
+                        <a href="#">
+                            <i class='bx bx-calendar-check icon' ></i>
+                            <span class="text navText">Approve Event</span>
+                        </a>
+                    </li>
+                    <li class="navLink">
+                        <a href="#">
+                            <i class='bx bxs-user-detail icon' ></i>
+                            <span class="text navText">User Management</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottomContent">
+                <li class="">
+                    <a href="/index.html">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text navText">Logout</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <!-- Side Bar -->
+    
+    <main class="home">
+        <header class="mainHeader">Events Management</header>
+        <div class="welcome">
+            <h2>Welcome back, John Doe!</h2>
+            <p>You have 3 events pending review.</p>
+            <p>Upcoming events: 3</p>
+        </div>
+
+        <table id ="calendarTable"></table>                    <!-- tr: Table row --><!-- th: Table head --><!-- td: Table description -->
+
+        <div class="buttonsEvents">
+            <button id="createNewEvent">Create a new event</button>
+            <button id="viewApprovedEvents">View approved events</button>
+            <button id="reviewPendingEvents">Review pending events</button>
+        </div>
+        
+        <footer>
+            <p>© 2024 GROUP3 All rights reserved.</p>
+            <div class="buttonsFooter">
+                <button id="contact">Contact</button>
+                <button id="help">Help</button>
+            </div>
+        </footer>
+    </main>
+
+    <script src="/assets/js/eventsManagement.js"></script>
+</body>
+</html>
