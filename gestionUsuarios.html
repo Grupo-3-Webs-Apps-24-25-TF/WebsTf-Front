@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <h1>Gestión de Usuarios</h1>
+            <div class="header-icons">
+                <img src="assets/notification1.svg" alt="Notificaciones" class="icon">
+                <img src="assets/profile1.svg" alt="Perfil" class="icon">
+                <img src="assets/settings1.svg" alt="Configuración" class="icon">
+                <span>Hola, [AdminXXX]</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="user-management">
+            <h2>Gestión De Usuarios</h2>
+            <!-- Buscador y Filtros -->
+            <div class="filters">
+                <div>
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" placeholder="Búsqueda de Usuarios...">
+                    <button id="searchUser">Buscar Usuario</button>
+                </div>
+                <div>
+                    <label for="roles">Roles:</label>
+                    <select id="roles">
+                        <option>Selecciona una opción</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="estado">Estado:</label>
+                    <select id="estado">
+                        <option>Selecciona una opción</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tarjetas de información -->
+            <div class="cards-container">
+                <!-- Tarjeta de Usuario -->
+                <div class="card">
+                    <h3>[Nombre de Usuario]</h3>
+                    <p>[Nombres y Apellidos]</p>
+                    <p>[Rol del Usuario]</p>
+                    <p>[Fecha de Registro]</p>
+                    <div class="card-buttons">
+                        <button>Editar Rol</button>
+                        <button>Eliminar</button>
+                        <button>Bloquear</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Evento -->
+                <div class="card">
+                    <h3>[Título del Evento]</h3>
+                    <p>[Público Objetivo]</p>
+                    <p>[Organización]</p>
+                    <p>[Fecha y Hora]</p>
+                    <p>[Descripción]</p>
+                    <p>[Estado: Pendiente]</p>
+                    <button>Ver Detalles</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 PERU Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="#">Contacto</a> | <a href="#">Ayuda</a>
+        </div>
+    </footer>
+</body>
+</html>

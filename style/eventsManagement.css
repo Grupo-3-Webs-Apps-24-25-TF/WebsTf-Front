@@ -1,0 +1,420 @@
+@font-face {
+    font-family: "Inter";
+    src: url('/assets/fonts/Inter-ExtraBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Inter";
+    src: url('/assets/fonts/Inter-Bold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Inter";
+    src: url('/assets/fonts/Inter-SemiBold.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Inter";
+    src: url('/assets/fonts/Inter-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Inter";
+    src: url('/assets/fonts/Inter-ExtraLight-BETA.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Inter";
+    src: url('/assets/fonts/Inter-Thin-BETA.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+:root {
+    /* Side Bar Colors */
+    --bodyColor: #E4E9F7;
+    --sidebarColor: #FFF;
+    --primaryColor: #695CFE;
+    --primaryColorLight: #F6F5FF;
+    --toogleColor: #DDD;
+    --textColor: #707070;
+    /* Transitions */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+/*================== SIDE BAR =============================*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 15px;
+    background: var(--sidebarColor);
+
+    z-index: 100;
+    transition: var(--tran-05);
+}
+
+.sidebar .image {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar .text {
+    font-family: "Inter";
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--textColor);
+
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar .sideBarHeader {
+    position: relative;
+}
+
+.sidebar .imageText img {
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar .sideBarHeader .imageText {
+    display: flex;
+    align-items: center;
+}
+
+.sideBarHeader .imageText .HeaderText {
+    display: flex;
+    flex-direction: column;
+}
+
+.HeaderText .name01 {
+    font-weight: 500;
+
+}
+.HeaderText .name02 {
+    margin-top: -2px;
+    font-weight: 400;
+}
+.sidebar li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon, .sidebar li text{
+    color: var(--textColor);
+
+    transition: var(--tran-02);
+}
+
+.sidebar .menu {
+    margin-top: 35px;
+}
+
+.sidebar li .icon {
+    min-height: 60px;
+    font-size: 1.5em;
+    padding-right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar .sideBarHeader .toogle {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--primaryColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebarColor);
+    font-size: 1.25em;
+
+    transition: var(--tran-03);
+}
+
+.sidebar li a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+
+    transition: var(--tran-04);
+}
+
+.sidebar .searchBox {
+    background-color: var(--primaryColorLight);
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+
+.searchBox input {
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primaryColorLight);
+}
+
+.sidebar li a:hover {
+    background-color: var(--primaryColor);
+}
+
+.sidebar li a:hover .icon, .sidebar li a:hover .text {
+    color: var(--sidebarColor);
+}
+
+.sidebar .menuBar {
+    height: calc(100% - 70px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menuBar .mode i {
+    position: absolute;
+    transition: var(--tran-03);
+}
+
+.menuBar .mode .toggleSwitch {
+    position: absolute;
+    height: 100%;
+    min-width: 60px;
+    right: 0;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--primaryColorLight);
+
+    transition: var(--tran-05);
+}
+
+.toggleSwitch .switch {
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background-color: var(--toogleColor);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebarColor);
+    cursor: pointer;
+
+    transition: var(--tran-03);
+}
+
+.sidebar.close .sideBarHeader .toogle {
+    transform: translateY(-50%);
+}
+
+.sidebar.close {
+    width: 88px;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.home .text {
+    font-size: 2em;
+    font-weight: 500;
+    color: var(--textColor);
+    padding: 8px 40px;
+}
+
+.sidebar.close ~ .home {
+    left: 88px;
+    width: calc(100% - 88px);
+}   
+/*================== SIDE BAR =============================*/
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* Evita scroll por el rectángulo fuera de pantalla */
+    overflow: hidden;           
+    background-color: #ebefff;  /*Blanco: #f0f0f0*/
+}
+
+.home {
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8% 1fr 2fr 1fr 0.5fr 5%;
+    gap: 0;
+}
+
+.mainHeader {
+    background-color: #AFB3FF;
+    grid-row: 1;
+    color: white;
+    font-family: "Inter";
+    font-size: 1.5em;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    padding-left: 1.5%;
+}
+
+footer {
+    background-color: #595C98;
+    grid-row: 6;
+    
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    color: white;
+    font-family: "Inter";
+    font-size: 1em;
+    font-weight: 400;
+
+    padding-left: 1.5%;
+}
+
+footer button {
+    background-color: transparent;
+    border: none;
+    color: #8E99C5;
+    font-family: "Inter";
+    font-size: 1em;
+    font-weight: 400;
+
+    display: flex;
+    justify-content: right;
+}
+
+footer button:hover{
+    color: #747faa;
+}
+
+.buttonsFooter {
+    display: flex;
+    /* Flexbox interpreta esto colocándolo lo máximo posible hacia la derecha */
+    margin-left: auto;
+    gap: 5px;
+    padding-right: 1.5%;
+}
+
+.buttonsEvents {
+    grid-row: 5;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.buttonsEvents button{
+    background-color: #656ED3;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+
+    color: white;
+    font-family: "Inter";
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.buttonsEvents button:hover{
+    background-color: #535aa7;
+}
+
+table {
+    grid-row: 3;
+    margin: 2% 2%;
+    border-spacing: 5px;
+    table-layout: fixed; /* Las celdas tendrán el mismo tamaño */
+}
+
+table tr{
+    background-color: #434570;
+}
+
+table td, table th {
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+
+    font-family: "Inter";
+    font-size: 1em;
+    font-weight: 300;
+}
+
+/* Que los encabezados esten en negrita*/
+table th {
+    font-weight: 500;
+}
+
+.welcome {
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    font-family: "Inter";
+    margin: auto 30%;
+}
+
+.welcome h2 {
+    color: #3B4F98;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.welcome p {
+    text-align: left;
+    margin: auto 17%;
+    padding-bottom: 10px;
+    font-size: 1em;
+    font-weight: 400;
+}

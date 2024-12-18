@@ -39,6 +39,14 @@ p {
     text-align: center;
 }
 
+a {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    text-decoration: none;
+}
+
 #returnButton {
     border: none;
     border-radius: 50px;
