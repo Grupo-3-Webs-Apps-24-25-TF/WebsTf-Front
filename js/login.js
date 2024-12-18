@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const result = await response.json();
                 localStorage.setItem("role", result.role);
                 localStorage.setItem("token", result.token);
-                window.location.href = "register.html";
+                window.location.href = "dashboardAdmin.html";
             } else {
                 const error = await response.json();
                 showError(`Error: ${error.message}`);
