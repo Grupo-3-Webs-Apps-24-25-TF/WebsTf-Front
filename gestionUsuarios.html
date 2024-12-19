@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios</title>
     <link rel="stylesheet" href="/style/gestionUsuario.css">
-    <script src="js/gestionUsuario.js" defer></script>
+    <script src="js/gestionUsuarios.js" defer></script>
 </head>
 <body>
     <!-- Contenedor principaal -->
@@ -41,48 +41,35 @@
                 <!-- Buscador y Filtros -->
                 <div class="filters">
                     <div>
-                        <label for="username">Nombre de Usuario:</label>
-                        <input type="text" id="username" placeholder="Búsqueda de Usuarios...">
-                        <button id="filters button">Buscar Usuario</button>
+                        <label class="contform__label" for="username">Nombre de Usuario:</label>
+                        <input class="contform__imput" type="text" id="username" placeholder="Búsqueda de Usuarios...">
                     </div>
                     <div>
-                        <label for="roles">Roles:</label>
-                        <select id="roles">
-                            <option>Selecciona una opción</option>
+                        <label class="contform__label">Roles:</label>
+                        <select class="contform__imput__select" id="Categoria" >
+                            <option value="" disabled selected>Selecciona una Categoria</option>
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Profesor">Profesor</option>
+                            <option value="Coordinador">Coordinador</option>
+                            <option value="Dirección">Dirección</option>
                         </select>
                     </div>
-                    <div>
+                    <!-- <div>
                         <label for="estado">Estado:</label>
                         <select id="estado">
                             <option>Selecciona una opción</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
+                <div><button id="searchUser">Buscar Usuario</button></div>
+                
+                <!-- Mensajes dinamicos -->
+                <div id="error-message" class="error-message" aria-live="polite"></div>
+                <div id="loading-spinner" class="spinner" style="display: none;">Cargando...</div>
 
-                <!-- Tarjetas de información -->
-                <div class="cards-container">
-                    <!-- Tarjeta de Usuario -->
-                    <div class="card">
-                        <h3>[Nombre de Usuario]</h3>
-                        <p>[Nombres y Apellidos]</p>
-                        <p>[Rol del Usuario]</p>
-                        <div class="card-buttons">
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                            <button>Bloquear</button>
-                        </div>
-                    </div>
-
-                    <!-- Tarjeta de Evento -->
-                    <div class="card">
-                        <h3>[Título del Evento]</h3>
-                        <p>[Público Objetivo]</p>
-                        <p>[Organización]</p>
-                        <p>[Fecha y Hora]</p>
-                        <p>[Descripción]</p>
-                        <p>[Estado: Pendiente]</p>
-                        <button>Ver Detalles</button>
-                    </div>
+                <!-- Contenedor de Tarjetas -->
+                <div class="cards-container" id="cards-container">
+                    <!-- -->
                 </div>
             </section>
         </main>

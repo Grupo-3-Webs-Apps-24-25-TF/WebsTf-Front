@@ -111,7 +111,46 @@ button:hover {
     background-color: var(--color-secundario-purple-light);
 }
 
+.error-message {
+    color: red;
+    display: none;
+    margin: 1em;
+    font-family: "sanFrancisco__Regular";
+    text-align: center;
+}
 
+.filters{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.contform__imput__select {
+    width: 100%;
+    border: 1px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none; 
+}
+
+.contform__label {
+    margin-bottom: 1.4em;
+}
+
+.contform__imput {
+    width: 100%;
+    border: 1px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+}
+
+form, input, textarea, select, label {
+    font-size: inherit;
+    background-color: transparent;
+    display: block;
+}
 
 
 /* Pie de página */
