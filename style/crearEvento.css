@@ -153,6 +153,8 @@ form, input, textarea, select, label {
 }
 
 
+
+
 /* Pie de página */
 footer {
     background-color: var(--color-footer-bg);
@@ -186,108 +188,4 @@ footer a:hover {
     font-family: "SanFrancisco__Regular";
     src: url(../SanFrancisco/otf/SFNSDisplay-Regular.otf) format("opentype");
     font-display: swap;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Fondo semitransparente del modal */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* asegura que el modal esté encima de otros elementos */
-}
-
-/* Contenido del modal */
-.modal-content {
-    background-color: var(--color-terceario-white); 
-    padding: 20px;
-    border-radius: 1.3em; 
-    width: 400px; 
-    max-width: 100%; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    color: var(--color-primario-purple-dark); 
-}
-
-/* Títulos del modal */
-.modal-content h2 {
-    margin-top: 0;
-    font-size: 24px;
-    font-family: "SanFrancisco__Bold", sans-serif;
-    color: var(--color-primario-purple-dark); 
-}
-
-/* Formulario dentro del modal */
-.modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.modal-content label {
-    font-size: 14px;
-    color: var(--color-primario-purple-dark); 
-    font-family: "SanFrancisco__Regular", sans-serif;
-}
-
-.modal-content input {
-    padding: 10px;
-    border: 1px solid var(--color-primario-purple-dark); 
-    border-radius: 1.3em;
-    font-size: 16px;
-    font-family: "SanFrancisco__Regular", sans-serif;
-}
-
-.modal-content .modal-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-/* Estilo para los botones */
-.modal-content .save-btn,
-.modal-content .cancel-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 1.6em;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: "SanFrancisco__Bold", sans-serif;
-    transition: all .3s ease;
-}
-
-.save-btn {
-    background-color: var(--color-secundario-purple-light); 
-    color: var(--color-terceario-white); 
-}
-
-.cancel-btn {
-    background-color: var(--color-primario-purple-dark); 
-    color: var(--color-terceario-white); 
-}
-
-/* Efecto al pasar el mouse sobre los botones */
-.save-btn:hover {
-    background-color: var(--color-primario-purple-dark);
-    color: var(--color-secundario-purple-light);
-}
-
-.cancel-btn:hover {
-    background-color: var(--color-secundario-purple-light);
-    color: var(--color-primario-purple-dark);
 }
