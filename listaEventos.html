@@ -12,7 +12,7 @@
         <!-- Header -->
         <header>
             <div class="header-left">
-                <h1>Aprobación de Eventos</h1>
+                <h1>Lista de Eventos</h1>
             </div>
             <div class="header-icons">
                 <img src="assets/notification1.svg" alt="Notificaciones" class="icon">
@@ -26,7 +26,7 @@
         <!-- Menu barra horizontal -->
         <nav>
             <a href="dashboardAdmin.html">Dashboard</a>
-            <a href="listaEventos.html">Eventos</a>
+            <a href="detallesEventos.html">Eventos</a>
             <a href="crearEvento.html">Crear Evento</a>
             <a href="index.html">Salir</a>
             <a href="aprobacionEventos.html">Aprobar Evento</a>
@@ -45,6 +45,13 @@
 
             <label for="date">Fecha:</label>
             <input type="date" id="date">
+
+            <label class="contform__label"> Estado:</label>
+                    <select class="contform__imput__select" id="eventStatus" name="status">
+                        <option value="" disabled selected>Selecciona un estado</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="confirmado">Confirmado</option>
+                    </select>
 
             <button class="search-button">Buscar Evento</button>
         </section>
@@ -66,6 +73,8 @@
                     <a href="detallesEventos.html">
                         <button class="details">Ver Detalles</button>
                     </a>
+                    <button class="edit">Editar</button>
+                    <button class="delet">Eliminar</button>
                     <button class="reject">Rechazar</button>
                 </div>
             </div>
@@ -85,6 +94,8 @@
                     <a href="detallesEventos.html">
                         <button class="details">Ver Detalles</button>
                     </a>
+                    <button class="edit">Editar</button>
+                    <button class="delet">Eliminar</button>
                     <button class="reject">Rechazar</button>
                 </div>
             </div>
