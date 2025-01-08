@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://www.amoamel.com/api/events/post-user";
+    const API_URL = "https://www.amoamel.com/web/api/events/post-user";
     const token = localStorage.getItem("token");
 
     const form = document.getElementById("eventForm");
