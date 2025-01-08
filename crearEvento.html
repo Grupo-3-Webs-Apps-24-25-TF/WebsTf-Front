@@ -49,31 +49,31 @@
 
                     <!-- Campo para ingresar la descripción del evento -->
                     <label class="contform__label"> Descripción:</label>
-                    <textarea class="contform__imput" id="eventDescription" name="description"></textarea>
+                    <textarea class="contform__imput" id="eventDescription" name="description" required></textarea>
 
                     <!-- Campo para seleccionar la hora inicio del evento -->
                     <label class="contform__label"> Hora de Inicio:</label>
-                    <input class="contform__imput" type="time" id="eventStartTime" name="startTime">
+                    <input class="contform__imput" type="time" id="eventHourStarting" name="hourStarting" required>
 
                     <!-- Campo para seleccionar la hora fin del evento -->
                     <label class="contform__label"> Hora de Fin:</label>
-                    <input class="contform__imput" type="time" id="eventEndTime" name="endTime">
+                    <input class="contform__imput" type="time" id="eventHourEnding" name="hourEnding" required>
 
                     <!-- Campo para ingresar la ubicación del evento -->
                     <label class="contform__label"> Ubicación:</label>
-                    <input class="contform__imput" type="text" id="eventLocation" name="location">
+                    <input class="contform__imput" type="text" id="eventLocation" name="location" required>
 
                     <!-- Campo para seleccionar el estado del evento (pendiente o confirmado) -->
-                    <label class="contform__label"> Estado:</label>
-                    <select class="contform__imput__select" id="eventStatus" name="status">
+                    <!-- <label class="contform__label"> Estado:</label>
+                    <select class="contform__imput__select" id="eventStatus" name="status" required>
                         <option value="" disabled selected>Selecciona un estado</option>
                         <option value="pendiente">Pendiente</option>
                         <option value="confirmado">Confirmado</option>
-                    </select>
+                    </select> -->
 
                     <!-- Campo para seleccionar la categoría del evento () -->
                     <label class="contform__label"> Categoría:</label>
-                    <select class="contform__imput__select" id="eventCategory" name="category">
+                    <select class="contform__imput__select" id="eventCategory" name="category" required>
                         <option value="" disabled selected>Selecciona una Categoria</option>
                         <option value="empresarial">Empresarial</option>
                         <option value="musical">Musical</option>
@@ -81,11 +81,16 @@
 
                     <!-- Campo para seleccionar la fecha del evento -->
                     <label class="contform__label"> Fecha:</label>
-                    <input class="contform__imput" type="date" id="eventDate" name="date">
+                    <input class="contform__imput" type="date" id="eventDate" name="date" required>
+
+                    <!-- Campo para ingresar el enlace de registro -->
+                    <label class="contform__label"> Enlace de Registro:</label>
+                    <input class="contform__imput" type="url" id="eventRegisterLink" name="registerLink" required>
+
 
                     <!-- Campo para cargar una imagen relacionada con el evento -->
                     <label class="contform__label"> Imagen:</label>
-                    <input class="contform__imput" type="file" id="eventImage" name="image">
+                    <input class="contform__imput" type="file" id="eventImage" name="image" required>
 
                     <!-- Botones para enviar o cancelar el formulario -->
                     <button type="submit">Crear</button>
