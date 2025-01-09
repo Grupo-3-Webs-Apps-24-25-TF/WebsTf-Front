@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprobación de Eventos</title>
     <link rel="stylesheet" href="/style/aprobacionEventos.css">
+    <script src="js/aprobacionEventos.js"></script>
 </head>
 <body>
     <!-- Contenedor Principal -->
@@ -35,12 +36,15 @@
 
         <!-- Barra de Búsqueda -->
         <section class="search-bar">
-            <label for="search-name">Nombre:</label>
+            <label for="search-name">Titulo del Evento:</label>
             <input type="text" id="search-name" placeholder="Buscar Eventos...">
 
             <label for="categories">Categorías o Etiquetas:</label>
             <select id="categories">
-                <option>Selecciona una opción</option>
+                <option value="" disabled selected>Selecciona una opcion</option>
+                <option value="empresarial">Empresarial</option>
+                <option value="musical">Musical</option>
+                <option value="gaming">Gaming</option>
             </select>
 
             <label for="date">Fecha:</label>
@@ -50,44 +54,8 @@
         </section>
 
         <!-- Sección de Eventos -->
-        <section class="events-list">
-            <!-- Evento 1 -->
-            <div class="event-card">
-                <div class="event-details">
-                    <h3>[Título del Evento]</h3>
-                    <p><strong>Público Objetivo:</strong> [Público Objetivo]</p>
-                    <p><strong>Organizador:</strong> [Organizador]</p>
-                    <p><strong>Fecha y Hora:</strong> [Fecha y Hora]</p>
-                    <p><strong>Descripción:</strong> [Descripción]</p>
-                    <p><strong>Estado:</strong> Pendiente</p>
-                </div>
-                <div class="event-actions">
-                    <button class="approve">Aprobar</button>
-                    <a href="detallesEventos.html">
-                        <button class="details">Ver Detalles</button>
-                    </a>
-                    <button class="reject">Rechazar</button>
-                </div>
-            </div>
-
-            <!-- Evento2 -->
-            <div class="event-card">
-                <div class="event-details">
-                    <h3>[Título del Evento]</h3>
-                    <p><strong>Público Objetivo:</strong> [Público Objetivo]</p>
-                    <p><strong>Organizador:</strong> [Organizador]</p>
-                    <p><strong>Fecha y Hora:</strong> [Fecha y Hora]</p>
-                    <p><strong>Descripción:</strong> [Descripción]</p>
-                    <p><strong>Estado:</strong> Pendiente</p>
-                </div>
-                <div class="event-actions">
-                    <button class="approve">Aprobar</button>
-                    <a href="detallesEventos.html">
-                        <button class="details">Ver Detalles</button>
-                    </a>
-                    <button class="reject">Rechazar</button>
-                </div>
-            </div>
+        <section class="events-list" id="eventsList">
+            <!-- se agera dinámicamente los eventos -->
         </section>
 
         <!-- Footer -->

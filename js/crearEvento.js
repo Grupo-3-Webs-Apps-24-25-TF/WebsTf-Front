@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const API_URL = "https://www.amoamel.com/web/api/events/post-user";
-    const API_URL2 = "https://www.amoamel.com/web/api/events/image";
-
+    const API_URL2 = "https://www.amoamel.com/web/api/events/image";  // URL para subir la imagen
     const token = localStorage.getItem("token");
     const form = document.getElementById("eventForm");
 
@@ -12,12 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const title = form.title.value.trim();
         const description = form.description.value.trim();
         const startTime = form.hourStarting.value;  
-        const endTime = form.hourEnding.value;      
+        const endTime = form.hourEnding.value;        
         const location = form.location.value.trim();
         const category = form.category.value;
         const date = form.date.value;
         const registerLink = form.registerLink.value.trim();
-        const imageFile = form.image.files[0];
+        const imageFile = form.image.files[0]; // Imagen seleccionada por el usuario
+
         console.log("Archivo de imagen seleccionado:", imageFile);
 
         // Validaciones básicas
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            // Se crea el evento
+            // Se crea el evento (con imagen predeterminada)
             const eventData = {
                 title,
                 description,
@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 category,
                 date,
                 registerLink,
+                image: "../assets/defecto.png"  // Imagen predeterminada ubicada en la carpeta assets
             };
 
             const createEventResponse = await fetch(API_URL, {
@@ -61,42 +62,41 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const createdEvent = await createEventResponse.json();
-            const eventId = createdEvent.event._id;  
+            const eventId = createdEvent.event._id;  // Obtener el ID del evento creado
             console.log("Evento creado con éxito. ID:", eventId);
 
-            // Se sube la imagen al evento
-            let imageUrl = null;
+            // Agregar el evento dinámicamente a la lista
+            addEventToList(eventData); //PARA PROABR 
+
+            // Si se seleccionó una imagen, se sube en el segundo paso
             if (imageFile) {
                 const formData = new FormData();
                 formData.append("image", imageFile);
-                formData.append("eventId", eventId); 
+                formData.append("eventId", eventId);  // Asociar la imagen con el evento
 
-                try {
-                    const uploadImageResponse = await fetch(API_URL2, {
-                        method: "PUT",
-                        headers: {
-                            "Authorization": token,
-                        },
-                        body: formData,
-                    });
+                // Subir la imagen al evento
+                const uploadImageResponse = await fetch(API_URL2, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": token,
+                    },
+                    body: formData,
+                });
 
-                    if (!uploadImageResponse.ok) {
-                        const error = await uploadImageResponse.text();
-                        alert(`Error al subir la imagen: ${error}`);
-                        return;
-                    }
-
-                    const imageResponse = await uploadImageResponse.json();
-                    imageUrl = imageResponse.imageUrl;  
-                    console.log("Imagen subida con éxito:", imageUrl);
-                } catch (error) {
-                    console.error("Error al subir la imagen:", error);
-                    alert("Hubo un problema al intentar subir la imagen.");
+                if (!uploadImageResponse.ok) {
+                    const error = await uploadImageResponse.text();
+                    alert(`Error al subir la imagen: ${error}`);
                     return;
                 }
+
+                const imageResponse = await uploadImageResponse.json();
+                const imageUrl = imageResponse.imageUrl;  
+                console.log("Imagen subida con éxito:", imageUrl);
+            } else {
+                console.log("No se seleccionó imagen, se mantiene la imagen por defecto.");
             }
 
-            alert("Evento creado y imagen subida con éxito.");
+            alert("Evento creado y, si se seleccionó, imagen subida con éxito.");
             form.reset();
         } catch (err) {
             console.error("Error de conexión:", err);
