@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://www.amoamel.com/web/api/events/post-user";
-    const API_URL2 = "https://www.amoamel.com/web/api/events/image";  // URL para subir la imagen
+    const API_URL_USER = "https://www.amoamel.com/web/api/events/post-user";
+    const API_URL_ADMIN = "https://www.amoamel.com/web/api/events/post-admin";
+    const API_URL_IMAGE = "https://www.amoamel.com/web/api/events/image"; // URL para subir la imagen
     const token = localStorage.getItem("token");
+    const userRole = localStorage.getItem("role"); // Obtener el rol del usuario logueado
     const form = document.getElementById("eventForm");
     updateWelcomeMessage();
 
@@ -33,7 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            // Se crea el evento (con imagen predeterminada)
+            // Seleccionar la URL adecuada según el rol del usuario
+            const apiUrl = userRole === "Administrador" ? API_URL_ADMIN : API_URL_USER;
+
+            // Crear el evento (con imagen predeterminada)
             const eventData = {
                 title,
                 description,
@@ -43,10 +48,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 category,
                 date,
                 registerLink,
-                image: "../assets/defecto.png"  // Imagen predeterminada ubicada en la carpeta assets
+                image: "../assets/defecto.png" // Imagen predeterminada ubicada en la carpeta assets
             };
 
-            const createEventResponse = await fetch(API_URL, {
+            // Agregar estado si el usuario es administrador
+            if (userRole === "Administrador") {
+                eventData.status = "Aprobado";
+            }
+
+            const createEventResponse = await fetch(apiUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -63,20 +73,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const createdEvent = await createEventResponse.json();
-            const eventId = createdEvent.event._id;  // Obtener el ID del evento creado
+            const eventId = createdEvent.event._id; // Obtener el ID del evento creado
             console.log("Evento creado con éxito. ID:", eventId);
 
-            // Agregar el evento dinámicamente a la lista
-            addEventToList(eventData); //PARA PROABR 
+            // Agregar el evento dinámicamente a la lista (si es necesario)
+            addEventToList(eventData); //PARA PROBAR
 
-            // Si se seleccionó una imagen, se sube en el segundo paso
+            // Si se seleccionó una imagen, subirla en el segundo paso
             if (imageFile) {
                 const formData = new FormData();
                 formData.append("image", imageFile);
-                formData.append("eventId", eventId);  // Asociar la imagen con el evento
+                formData.append("eventId", eventId); // Asociar la imagen con el evento
 
                 // Subir la imagen al evento
-                const uploadImageResponse = await fetch(API_URL2, {
+                const uploadImageResponse = await fetch(API_URL_IMAGE, {
                     method: "PUT",
                     headers: {
                         "Authorization": token,
@@ -119,5 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             console.warn("No se encontró un nombre en localStorage.");
         }
-    }    
+    }
+
+    function addEventToList(eventData) {
+        // Lógica para agregar el evento dinámicamente a una lista (si es necesario)
+        console.log("Evento agregado a la lista:", eventData);
+    }
 });

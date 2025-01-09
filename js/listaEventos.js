@@ -73,18 +73,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Filtra los eventos basados en los valores de búsqueda adicionales
+                // const filteredEvents = events.filter(event => {
+                //     const eventTitle = event.title.toLowerCase();
+                //     const eventCategory = event.category.toLowerCase();
+                //     const eventStatus = event.status.toLowerCase();
+
+                //     // Verifica si el evento cumple con todos los filtros
+                //     const matchesName = name ? eventTitle.includes(name) : true;
+                //     const matchesCategory = category ? eventCategory.includes(category) : true;
+                //     const matchesStatus = status ? eventStatus === status : true;
+
+                //     return matchesName && matchesCategory && matchesStatus;
+                // });
                 const filteredEvents = events.filter(event => {
                     const eventTitle = event.title.toLowerCase();
                     const eventCategory = event.category.toLowerCase();
                     const eventStatus = event.status.toLowerCase();
-
+                
                     // Verifica si el evento cumple con todos los filtros
                     const matchesName = name ? eventTitle.includes(name) : true;
                     const matchesCategory = category ? eventCategory.includes(category) : true;
                     const matchesStatus = status ? eventStatus === status : true;
-
+                
+                    // Si el usuario es normal, excluye eventos que no estén aprobados
+                    if (userRole === 'Usuario' && eventStatus !== 'aprobado') {
+                        return false;
+                    }
+                
                     return matchesName && matchesCategory && matchesStatus;
                 });
+                
 
                 // Limpia los resultados anteriores
                 const eventsList = document.getElementById('eventsList');
