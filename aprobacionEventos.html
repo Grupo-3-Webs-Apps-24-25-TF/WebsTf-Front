@@ -6,6 +6,7 @@
     <title>Aprobación de Eventos</title>
     <link rel="stylesheet" href="/style/aprobacionEventos.css">
     <script src="js/aprobacionEventos.js"></script>
+    <script src="js/vistasUsuarios.js"></script>
 </head>
 <body>
     <!-- Contenedor Principal -->
@@ -16,9 +17,9 @@
                 <h1>Aprobación de Eventos</h1>
             </div>
             <div class="header-icons">
-                <img src="assets/notification1.svg" alt="Notificaciones" class="icon">
+                <!-- <img src="assets/notification1.svg" alt="Notificaciones" class="icon">
                 <img src="assets/profile1.svg" alt="Perfil" class="icon">
-                <img src="assets/settings1.svg" alt="Configuración" class="icon">
+                <img src="assets/settings1.svg" alt="Configuración" class="icon"> -->
                 <span>Hola, [AdminXXX]</span>
             </div>
         </header>
@@ -30,8 +31,8 @@
             <a href="listaEventos.html">Eventos</a>
             <a href="crearEvento.html">Crear Evento</a>
             <a href="index.html">Salir</a>
-            <a href="aprobacionEventos.html">Aprobar Evento</a>
-            <a href="gestionUsuarios.html">Gestión de Usuarios</a>
+            <a href="aprobacionEventos.html" id="approve-events-link">Aprobar Evento</a>
+            <a href="gestionUsuarios.html" id="manage-users-link">Gestión de Usuarios</a>
         </nav> 
 
         <!-- Barra de Búsqueda -->
@@ -42,9 +43,9 @@
             <label for="categories">Categorías o Etiquetas:</label>
             <select id="categories">
                 <option value="" disabled selected>Selecciona una opcion</option>
-                <option value="empresarial">Empresarial</option>
-                <option value="musical">Musical</option>
-                <option value="gaming">Gaming</option>
+                <option value="estudiantes">estudiantes</option>
+                <option value="profesores">profesores</option>
+                <option value="comunidad universitaria">comunidad universitaria</option>
             </select>
 
             <label for="date">Fecha:</label>

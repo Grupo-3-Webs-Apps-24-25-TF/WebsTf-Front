@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const BASE_API_URL = "https://www.amoamel.com/web/api/events";
     const token = localStorage.getItem("token");
+    console.log("Token:", token);  // Verifica que el token esté presente
+    // const decodedToken = decodeToken(token);
+    // console.log(decodedToken); // Aquí verás el contenido del token, incluyendo el ro   
 
+    
     const searchButton = document.querySelector('.search-button');
     if (searchButton) {
         searchButton.addEventListener('click', async function() {
@@ -91,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     filteredEvents.forEach(event => {
                         const eventCard = document.createElement('div');
                         eventCard.classList.add('event-card');
+                        eventCard.id = event._id; // Asigna el ID del evento al contenedor de la tarjeta
 
                         eventCard.innerHTML = `
                             <div class="event-details">
@@ -104,12 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p><strong>Estado:</strong> ${event.status}</p>
                             </div>
                             <div class="event-actions">
-                                <button class="approve">Aprobar</button>
+                                <button class="approve" onclick="approveEvent('${event._id}')">Aprobar</button>
                                 <a href="detallesEventos.html">
                                     <button class="details" onclick="saveEventId('${event._id}', '${event.date}')">Ver Detalles</button>
                                 </a>
                                 <button class="edit">Editar</button>
-                                <button class="delete">Eliminar</button>
+                                <button class="delete" onclick="deleteEvent('${event._id}')">Eliminar</button>
                                 <button class="reject">Rechazar</button>
                             </div>
                         `;
@@ -139,3 +144,103 @@ function saveEventId(eventId, eventDate) {
     localStorage.setItem('selectedEventDate', formattedDate);
     console.log(`Evento seleccionado: ${eventId}, Fecha: ${formattedDate}`); // Para depuración
 }
+
+
+
+// Función para eliminar un evento
+function deleteEvent(eventId) {
+    
+    const token = localStorage.getItem("token");
+    console.log("Token:", token);  // Verifica que el token esté presente
+    // const decodedToken = decodeToken(token);
+    // console.log(decodedToken); // Aquí verás el contenido del token, incluyendo el ro   
+
+    if (!token) {
+        alert('No estás autenticado. Por favor, inicia sesión.');
+        return;
+    }
+
+    const confirmDelete = confirm("¿Estás seguro de que deseas eliminar este evento?");
+    if (!confirmDelete) {
+        return;
+    }
+
+    console.log("Event ID:", eventId);
+    // Enviar el eventId en el cuerpo de la solicitud
+    fetch('https://www.amoamel.com/web/api/events/' + eventId, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === "Event deleted successfully") {
+            const eventCard = document.getElementById(eventId);
+            if (eventCard) {
+                eventCard.remove();
+            }
+            alert('Evento eliminado exitosamente');
+        } else {
+            alert('No se pudo eliminar el evento: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error al eliminar el evento:', error);
+        alert('Ocurrió un error al intentar eliminar el evento.');
+    });
+    
+}
+
+
+
+function decodeToken(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+}
+
+
+// Función para aprobar un evento
+function approveEvent(eventId) {
+    const token = localStorage.getItem("token"); // Obtén el token de autenticación
+
+    if (!token) {
+        alert('No estás autenticado. Por favor, inicia sesión.');
+        return;
+    }
+
+    // Llama a la API para aprobar el evento
+    fetch(`https://www.amoamel.com/web/api/events/approve?eventId=${eventId}`, {
+        method: 'PUT',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.event) {
+            alert('Evento aprobado exitosamente');
+            // Actualiza la interfaz para reflejar el estado aprobado
+            const eventCard = document.getElementById(eventId);
+            if (eventCard) {
+                eventCard.querySelector('.status').textContent = 'Aprobado';
+            }
+        } else {
+            alert('Error al aprobar el evento: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error al aprobar el evento:', error);
+        alert('Ocurrió un error al intentar aprobar el evento.');
+    });
+    
+}
+

@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const buttons = document.createElement('div');
         buttons.classList.add('buttons');
         buttons.innerHTML = `
-            <button id="approve-event">Aprobar evento</button>
+            <button id="approve-event" onclick="approveEvent('${event._id}')">Aprobar evento</button>
             <button id="edit-event" onclick="redirectToEditEvent('${event._id}')">Editar evento</button>
             <button id="reject-event">Rechazar evento</button>
         `;
@@ -149,10 +149,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Agregar el contenido dinámico al contenedor
         eventDetailsContainer.appendChild(mainElement);
 
-        // Botones de acción
-        document.getElementById('approve-event').addEventListener('click', () => {
-            alert('Evento aprobado');
-        });
+        // Agregar el evento de aprobación
+        // document.getElementById('approve-event').addEventListener('click', function() {
+        //     const eventId = this.getAttribute('data-event-id');
+        //     approveEvent(eventId); // Llamada a la función para aprobar el evento
+        // });
 
         // document.getElementById('edit-event').addEventListener('click', () => {
         //     localStorage.setItem('selectedEventId', event._id); // Guardar el ID del evento
@@ -168,10 +169,41 @@ document.addEventListener('DOMContentLoaded', async () => {
         alert('No se pudo cargar el evento.');
     }
 });
+// Función para aprobar el evento
+async function approveEvent(eventId) {
+    const token = localStorage.getItem("token"); // Asegúrate de que el token esté disponible
+    try {
+        // Realizar la solicitud al backend
+        const response = await fetch(`https://www.amoamel.com/web/api/events/approve?eventId=${eventId}`, {
+            method: 'PUT', // Asegúrate de usar el método PUT
+            headers: {
+                'Authorization': `Bearer ${token}`, // Incluye el token de autorización
+                'Content-Type': 'application/json' // Configura el tipo de contenido
+            }
+        });
+
+        if (!response.ok) {
+            // Manejo de errores en caso de que la respuesta no sea exitosa
+            const errorData = await response.json();
+            console.error('Error al aprobar el evento:', errorData.message);
+            alert(`Error: ${errorData.message}`);
+            return;
+        }
+
+        // Procesar la respuesta
+        const data = await response.json();
+        console.log('Evento aprobado:', data.event);
+        alert('Evento aprobado exitosamente');
+        document.getElementById('event-status').textContent = 'Aprobado'; // Actualiza el estado en el DOM
+    } catch (error) {
+        console.error('Error al aprobar el evento:', error);
+        alert('Ocurrió un error al aprobar el evento.');
+    }
+}
+
 
 function redirectToEditEvent(eventId) {
     localStorage.setItem('selectedEventId', eventId); // Guardar el ID del evento en localStorage
     console.log(`Redirigiendo a la edición del evento con ID: ${eventId}`); // Para depuración
     window.location.href = 'editarEvento.html'; // Redirigir a la página de edición
 }
-
