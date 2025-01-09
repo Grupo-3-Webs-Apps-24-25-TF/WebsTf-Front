@@ -129,43 +129,65 @@ document.addEventListener("DOMContentLoaded", async () => {
             const updatedLastName = document.getElementById("edit-lastname").value;
             const updatedPassword = document.getElementById("edit-password").value;
     
-            // Se crea el objeto con los datos actualizados
-            const updatedUser = {
-                name: updatedName,
-                lastName: updatedLastName,
-                password: updatedPassword || undefined, 
-            };
-    
-            // Hace la solicitud PUT para actualizar los datos del usuario
-            try {
-                // para probar
-                // console.log("API_URL:", API_URL);
-                // console.log("user._id:", user._id);
-                // console.log("URL final:", `${API_URL}/update/${user._id}`);
+        try {
+            const response = await fetch(`${API_URL}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": token,
+                },
+                body: JSON.stringify({
+                    _id: user._id,
+                    name: updatedName,
+                    lastName: updatedLastName,
+                }),
+            });
 
-                
-                const response = await fetch(`${API_URL}`, {
-                    method: "PUT", 
+            if (!response.ok) {
+                const error = await response.json();
+                showError(`Error al actualizar usuario: ${error.message}`);
+                return;
+            }
+        } catch (err) {
+            console.error("Error al actualizar la información del usuario:", err);
+            showError("No se pudo actualizar la información del usuario.");
+            return;
+        }
+
+        // Si se proporciona una nueva contraseña, actualízala en una solicitud separada
+        if (updatedPassword) {
+            try {
+                const passwordResponse = await fetch(`${API_URL}/updatePassword`, {
+                    method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": token
+                        "Authorization": token,
                     },
-                    body: JSON.stringify(updatedUser),
+                    body: JSON.stringify({
+                        userId: user._id, // Cambiado a userId para coincidir con el backend
+                        password: updatedPassword,
+                    }),
                 });
-    
-                if (response.ok) {
-                    // Mostrar mensaje de exito (por ahora)
-                    alert("Usuario actualizado correctamente."); //pa probar
-                    closeModal(); 
-                    // 
-                } else {
-                    const error = await response.json();
-                    showError(`Error: ${error.message}`);       
+
+                if (!passwordResponse.ok) {
+                    const error = await passwordResponse.json();
+                    showError(`Error al actualizar contraseña: ${error.message}`);
+                    return;
                 }
+
+                // alert("Contraseña actualizada correctamente.");
+                // Mostrar una notificación bonita de éxito
+                showNotification("Contraseña actualizada correctamente", 'success');
             } catch (err) {
-                console.error("Error en la solicitud:", err);  
-                showError("No se pudo actualizar el usuario. Intenta de nuevo.");
+                console.error("Error al actualizar la contraseña:", err);
+                showError("No se pudo actualizar la contraseña.");
+                return;
             }
+        }
+
+
+        showNotification("Información actualizada correctamente", 'success');
+        closeModal();
         });
     };
 
@@ -233,7 +255,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 if (response.ok) {
                     // Mostrar mensaje de exito (solo por ahora)
-                    alert("Usuario eliminado correctamente."); // pa probar
+                    // alert("Usuario eliminado correctamente."); // pa probar
+                    showNotification("Usuario eliminado correctamente", 'success');
                     closeModal();
                     // 
                 } else {
@@ -250,38 +273,64 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-    //Evento pa buscar el usuario
+    // Evento para buscar el usuario
     const userName = document.getElementById("username");
     const categorySelect = document.getElementById("Categoria");
     const btnSearchUser = document.getElementById("searchUser");
 
     btnSearchUser.addEventListener("click", async function () {
-        const usernamePrompt = userName.value.trim();
-
-        if (usernamePrompt) {
+        const usernamePrompt = userName.value.trim();  // Nombre de usuario ingresado
+        const selectedCategory = categorySelect.value;  // Categoría seleccionada
+    
+        if (usernamePrompt || selectedCategory) {
             clearError();
             showLoading();
+    
+            // Limpia las tarjetas de usuario antes de mostrar los nuevos resultados
+            const cardsContainer = document.getElementById("cards-container");
+            cardsContainer.innerHTML = ''; // Limpiar el contenedor de tarjetas
+    
             try {
-                //realiza la solicitud a la API para obtener el usuario * IMPORTANTEee **
-                const response = await fetch(API_URL + "/getByUsername?username=" + usernamePrompt,  {
+                // Construye la URL de la búsqueda
+                let url = API_URL + "/getByUsername?";  // Endpoint de búsqueda por nombre de usuario
+    
+                // Si se ha ingresado un nombre de usuario, lo añade a la URL
+                if (usernamePrompt) {
+                    url += `username=${usernamePrompt}&`;
+                }
+    
+                // Realiza la solicitud GET con la URL construida
+                const response = await fetch(url, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": token
                     }
                 });
-
+    
                 hideLoading();
-
+    
                 if (response.ok) {
                     const result = await response.json();
-                    console.log("Datos del usuario:", result.user); // depuracion en consola pa proabr 
-                    const user = result.user;
-
-                    if (user) {
-                        createUserCard(user); // pa crear la tarjeta con los datos del usuario
+                    console.log("Datos del usuario:", result.user || result.users);  // Depuración en consola para probar
+                    const users = result.users || [result.user];  // Si es solo un usuario, lo convertimos en array
+    
+                    if (users.length > 0) {
+                        // Si se ha seleccionado una categoría, filtramos los usuarios
+                        const filteredUsers = selectedCategory 
+                            ? users.filter(user => user.category === selectedCategory) 
+                            : users;
+    
+                        // Si hay usuarios filtrados, mostramos las tarjetas
+                        if (filteredUsers.length > 0) {
+                            filteredUsers.forEach(user => {
+                                createUserCard(user); // Crea la tarjeta con los datos del usuario
+                            });
+                        } else {
+                            showError("No se encontraron usuarios para esta categoría.");
+                        }
                     } else {
-                        showError("Usuario no encontrado.");
+                        showError("No se encontraron usuarios.");
                     }
                 } else {
                     const error = await response.json();
@@ -292,7 +341,31 @@ document.addEventListener("DOMContentLoaded", async () => {
                 showError("No se pudo conectar al servidor. Verifica tu conexión.");
             }
         } else {
-            showError("Ingrese un nombre para buscar");
+            showError("Ingrese un nombre de usuario o seleccione una categoría para buscar.");
         }
     });
+
+
+
+    // Función para mostrar una notificación personalizada
+    const showNotification = (message, type = 'success') => {
+        // Crea un contenedor de la notificación
+        const notification = document.createElement('div');
+        notification.classList.add('notification', type); // Añade clases de notificación
+        notification.textContent = message; // Asigna el mensaje
+
+        // Agrega la notificación al body
+        document.body.appendChild(notification);
+
+        // Desaparecer la notificación después de 3 segundos
+        setTimeout(() => {
+            notification.classList.add('fade-out'); // 
+            setTimeout(() => {
+                notification.remove(); // elimina la notificación del DOM después de la animación
+            }, 500); // tiempo de la animación de desvanecimiento
+        }, 3000); // tiempo que permanece visible (3 segundos)
+    };
+
+
+    
 });

@@ -291,3 +291,44 @@ footer a:hover {
     background-color: var(--color-secundario-purple-light);
     color: var(--color-primario-purple-dark);
 }
+
+
+
+
+
+
+
+
+
+
+/* Estilos básicos para la notificación */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primario-purple-dark); /* Fondo con el color primario */
+    color: var(--color-terceario-white); /* Texto blanco */
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Notificación de error */
+.notification.error {
+    background-color: var(--color-footer-bg); /* Fondo con el color de footer para errores */
+}
+
+/* Desvanecimiento de la notificación */
+.notification.fade-out {
+    opacity: 0;
+}
+
+
