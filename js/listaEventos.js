@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const userRole = localStorage.getItem('role'); // Ejemplo: "Administrador" o "Usuario"
+    const userId = localStorage.getItem('userId'); // ID del usuario actual (se debe guardar en localStorage)
+
     const BASE_API_URL = "https://www.amoamel.com/web/api/events";
     const token = localStorage.getItem("token");
     updateWelcomeMessage();
@@ -94,6 +97,36 @@ document.addEventListener('DOMContentLoaded', () => {
                         eventCard.classList.add('event-card');
                         eventCard.id = event._id; // Asigna el ID del evento al contenedor de la tarjeta
 
+                        const isCreator = event.user._id === userId;
+
+                        let actionsHTML = '';
+                        if (userRole === 'Administrador') {
+                            actionsHTML = `
+                                <button class="approve" onclick="approveEvent('${event._id}')">Aprobar</button>
+                                <a href="detallesEventos.html">
+                                    <button class="details" onclick="saveEventId('${event._id}', '${event.date}')">Ver Detalles</button>
+                                </a>
+                                <button class="edit">Editar</button>
+                                <button class="delete" onclick="deleteEvent('${event._id}')">Eliminar</button>
+                                <button class="reject">Rechazar</button>
+                            `;
+                        } else if (userRole === 'Usuario') {
+                            if (isCreator) {
+                                actionsHTML = `
+                                    <a href="detallesEventos.html">
+                                        <button class="details" onclick="saveEventId('${event._id}', '${event.date}')">Ver Detalles</button>
+                                    </a>
+                                    <button class="edit">Editar</button>
+                                `;
+                            } else {
+                                actionsHTML = `
+                                    <a href="detallesEventos.html">
+                                        <button class="details" onclick="saveEventId('${event._id}', '${event.date}')">Ver Detalles</button>
+                                    </a>
+                                `;
+                            }
+                        }
+
                         eventCard.innerHTML = `
                             <div class="event-details">
                                 <h3>${event.title}</h3>
@@ -106,13 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p><strong>Estado:</strong> ${event.status}</p>
                             </div>
                             <div class="event-actions">
-                                <button class="approve" onclick="approveEvent('${event._id}')">Aprobar</button>
-                                <a href="detallesEventos.html">
-                                    <button class="details" onclick="saveEventId('${event._id}', '${event.date}')">Ver Detalles</button>
-                                </a>
-                                <button class="edit">Editar</button>
-                                <button class="delete" onclick="deleteEvent('${event._id}')">Eliminar</button>
-                                <button class="reject">Rechazar</button>
+                                ${actionsHTML}
                             </div>
                         `;
 
@@ -121,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     
                 } else {
-                    eventsList.innerHTML = '<p>No se encontraron eventos para la fecha seleccionada.</p>';
+                    eventsList.innerHTML = '<p>No se encontraron eventos para el filtro seleccionado.</p>';
                 }
             } catch (error) {
                 console.error('Error:', error);
