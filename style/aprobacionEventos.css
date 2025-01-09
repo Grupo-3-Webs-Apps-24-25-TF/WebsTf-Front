@@ -115,7 +115,9 @@ button:hover {
     background-color: var(--color-secundario-purple-light);
 }
 
-
+a {
+    text-decoration: none; /* Elimina el subrayado de todos los enlaces */
+}
 
 /* Pie de página */
 footer {

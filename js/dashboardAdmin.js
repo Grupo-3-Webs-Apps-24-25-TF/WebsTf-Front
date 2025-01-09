@@ -4,7 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Obtén el token del usuario desde localStorage
     const username = localStorage.getItem("username");
     const token = localStorage.getItem("token");
-    console.log(username);
+
+    // Mostrar el nombre almacenado en localStorage (si existe)
+    const name = localStorage.getItem("name");
+    if (name) {
+        updateWelcomeMessage(name);
+    }
 
     async function getUserData() {
         try {
@@ -41,3 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     getUserData();
 });
+
+function updateWelcomeMessage(name) {
+    const welcomeMessage = document.querySelector('h2');
+    welcomeMessage.textContent = `¡Bienvenido de nuevo, ${name}!`;
+
+    const headerSpan = document.querySelector('.header-right span');
+    headerSpan.textContent = `Hola, ${name}`;
+}
