@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const API_URL2 = "https://www.amoamel.com/web/api/events/image";  // URL para subir la imagen
     const token = localStorage.getItem("token");
     const form = document.getElementById("eventForm");
+    updateWelcomeMessage();
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -103,4 +104,20 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("No se pudo conectar al servidor. Verifica tu conexión.");
         }
     });
+
+    function updateWelcomeMessage() {
+        const name = localStorage.getItem("name");
+    
+        if (name) {
+            // Actualiza el saludo en el dashboard
+            const welcomeMessage = document.querySelector('h2');
+            welcomeMessage.textContent = `¡Bienvenido de nuevo, ${name}!`;
+    
+            // Actualiza el saludo en la barra superior
+            const headerSpan = document.querySelector('.header-icons span');
+            headerSpan.textContent = `Hola, ${name}`;
+        } else {
+            console.warn("No se encontró un nombre en localStorage.");
+        }
+    }    
 });

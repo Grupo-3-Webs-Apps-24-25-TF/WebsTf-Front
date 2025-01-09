@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const BASE_API_URL = "https://www.amoamel.com/web/api/events";
     const token = localStorage.getItem("token");
-
+    updateWelcomeMessage();
+    
     const searchButton = document.querySelector('.search-button');
     if (searchButton) {
         searchButton.addEventListener('click', async function() {
@@ -121,3 +122,15 @@ function saveEventId(eventId, eventDate) {
     localStorage.setItem('selectedEventDate', formattedDate);
     console.log(`Evento seleccionado: ${eventId}, Fecha: ${formattedDate}`); // Para depuración
 }
+
+function updateWelcomeMessage() {
+    const name = localStorage.getItem("name");
+
+    if (name) {
+        // Actualiza el saludo en la barra superior
+        const headerSpan = document.querySelector('.header-icons span');
+        headerSpan.textContent = `Hola, ${name}`;
+    } else {
+        console.warn("No se encontró un nombre en localStorage.");
+    }
+}   

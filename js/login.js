@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Almacena el rol y el token en el almacenamiento local del navegador (es como sesión de PHP)
                 localStorage.setItem("role", result.role);
                 localStorage.setItem("token", result.token);
+                localStorage.setItem("username", username);
                 // localStorage.setItem("userName", result.user.name); // Guardar el nombre del usuario
                 // Redirige al usuario a la página de registro
                 window.location.href = "dashboardAdmin.html";

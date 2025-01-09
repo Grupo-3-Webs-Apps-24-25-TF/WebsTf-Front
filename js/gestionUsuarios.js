@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const API_URL_DEV = "http://localhost:3010/api/users";
     const API_URL = "https://www.amoamel.com/web/api/users";
     const token = localStorage.getItem("token");
+    updateWelcomeMessage();
 
     //Funcion par mostrar errores
     const showError = (message) => {
@@ -365,7 +366,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             }, 500); // tiempo de la animación de desvanecimiento
         }, 3000); // tiempo que permanece visible (3 segundos)
     };
-
-
-    
 });
+
+function updateWelcomeMessage() {
+    const name = localStorage.getItem("name");
+
+    if (name) {
+        // Actualiza el saludo en la barra superior
+        const headerSpan = document.querySelector('.header-icons span');
+        headerSpan.textContent = `Hola, ${name}`;
+    } else {
+        console.warn("No se encontró un nombre en localStorage.");
+    }
+}

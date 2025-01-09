@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const eventId = localStorage.getItem('selectedEventId'); // Obtener el ID del evento desde el localStorage
     const eventDate = localStorage.getItem('selectedEventDate'); // Obtener la fecha del evento desde el localStorage
     const token = localStorage.getItem("token"); // Obtener el token para autorización
+    updateWelcomeMessage();
 
     if (!eventId) {
         console.error('No se encontró el ID del evento.');
@@ -207,3 +208,14 @@ function redirectToEditEvent(eventId) {
     console.log(`Redirigiendo a la edición del evento con ID: ${eventId}`); // Para depuración
     window.location.href = 'editarEvento.html'; // Redirigir a la página de edición
 }
+function updateWelcomeMessage() {
+    const name = localStorage.getItem("name");
+
+    if (name) {
+        // Actualiza el saludo en la barra superior
+        const headerSpan = document.querySelector('.header-right span');
+        headerSpan.textContent = `Hola, ${name}`;
+    } else {
+        console.warn("No se encontró un nombre en localStorage.");
+    }
+} 
