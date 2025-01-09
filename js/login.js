@@ -33,9 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("role", result.role);
                 localStorage.setItem("token", result.token);
                 localStorage.setItem("username", username);
-                // localStorage.setItem("userName", result.user.name); // Guardar el nombre del usuario
-                // Redirige al usuario a la página de registro
-                window.location.href = "dashboardAdmin.html";
+
+                // Redirige al usuario/admin a la página de registro
+                if (result.role == "Usuario") {window.location.href = "dashboardUser.html";}
+                else {window.location.href = "dashboardAdmin.html";}
             } else {
                 const error = await response.json();
                 showError(`Error: ${error.message}`);
