@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Admin</title>
+    <link rel="stylesheet" href="style/dashboardAdmin.css">
+    <script src="js/dashboardUser.js"></script>
+</head>
+<body>
+    <!-- Contenedor principaal -->
+    <div class="container">
+        <!-- Encabezado -->
+        <header>
+            <div class="header-left">
+                <h1>Gestión de Eventos</h1>
+            </div>
+            <div class="header-right">
+                <span>Hola, [Administrador]</span>
+            </div>
+        </header>
+
+        <!-- Menu barra horizontal -->
+        <nav>
+            <a href="dashboardUser.html">Dashboard</a>
+            <a href="listaEventos.html">Eventos</a>
+            <a href="crearEvento.html">Crear Evento</a>
+            <a href="index.html">Salir</a>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main>
+            <h2>¡Bienvenido de nuevo, [Nombre]!</h2>
+            <div class="info-center">
+                <p id="eventCount">Próximos eventos: [número]</p>
+            </div>
+        </main>
+
+        <section class="events-list" id="eventsList">
+            <!-- Los eventos se agregarán aquí dinámicamente -->
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 PERU Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Contacto</a> | <a href="#">Ayuda</a>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

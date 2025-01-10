@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario-purple-dark: #656ED3;
+    --color-secundario-purple-light: #afb3ff;
+    --color-terceario-white: #e5e5e5;
+    --color-nav-bg: #EBEFFF;
+    --color-footer-bg: #595C98;
+}
+
+::selection {
+    background-color: var(--color-primario-purple-dark);
+    color: var(--color-secundario-purple-light);
+}
+
+
+
+/* Estilos para la pgina web */
+
+/* Estilo para las cartas de los eventos */
+.events-list {
+    background-color: #EBEFFF; /* Color de fondo suave para la lista de eventos */
+    padding: 20px; /* Espaciado interno para que las tarjetas no toquen los bordes */
+    border-radius: 8px; /* Bordes redondeados */
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se muevan a una nueva línea si no caben */
+    gap: 20px; /* Espaciado entre las tarjetas */
+    justify-content: flex-start; /* Alinea las tarjetas al principio del contenedor */
+}
+
+.event-card {
+    width: 250px; /* Ajusta el tamaño de la tarjeta */
+    background-color: #f9f9f9; /* Fondo suave */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 20px 20px 20px 20px; /* Márgenes: 10px arriba, 20px en los lados, 20px abajo */
+    padding: 15px; /* Espaciado interno */
+    max-width: 300px; /* Ancho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease-in-out; /* Efecto de transición */
+}
+
+.event-card:hover {
+    transform: translateY(-8px); /* Eleva la tarjeta al pasar el ratón */
+}
+.event-card .event-details h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos generales */
+body {
+    font-family: "SanFrancisco__Regular", sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    background-color: var(--color-terceario-white);
+}
+
+/* Contenedor principal */
+.container {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--color-secundario-purple-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #FFFFFF;
+}
+
+header .icon {
+    width: 24px;
+    margin-left: 10px;
+}
+
+/* Menu barra de navegación */
+nav {
+    background-color: var(--color-nav-bg);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+nav a {
+    font-family: "SanFrancisco__Regular", sans-serif;
+    text-decoration: none;
+    color: var(--color-primario-purple-dark);
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--color-secundario-purple-light);
+    border-radius: 5px;
+}
+
+/* Contenido principal */
+main {
+    flex: 1;
+    background-color: var(--color-nav-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+main h2 {
+    margin-bottom: 10px;
+    color: var(--color-primario-purple-dark);
+    font-family: "SanFrancisco__Bold", sans-serif; 
+}
+
+main p {
+    font-family: "SanFrancisco__Regular", sans-serif;
+    margin: 5px 0;
+    color: #333;
+}
+
+/* Pie de página */
+footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-terceario-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: var(--color-terceario-white);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Declaración de fuentes */
+@font-face {
+    font-family: "SanFrancisco__Bold";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Bold.otf) format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SanFrancisco__Regular";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Regular.otf) format("opentype");
+    font-display: swap;
+}

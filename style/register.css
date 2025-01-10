@@ -63,6 +63,7 @@ form, input, textarea, select, button, label {
     padding: .8em 1.6em .8em 1.6em;
     cursor: pointer;
     -webkit-appearance: none;
+    appearance: none; 
 }
 
 .contform__login {

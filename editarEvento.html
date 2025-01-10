@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edición de Evento</title>
+    <link rel="stylesheet" href="style/crearEvento.css">
+    <script src="js/editarEvento.js" defer></script>
+    <script src="js/vistasUsuarios.js"></script>
+</head>
+<body>
+    <!-- Contenedor principaal -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-left">
+                <h1>Editar Evento</h1>
+            </div>
+            <div class="header-icons">
+                <!-- <img src="assets/notification1.svg" alt="Notificaciones" class="icon">
+                <img src="assets/profile1.svg" alt="Perfil" class="icon">
+                <img src="assets/settings1.svg" alt="Configuración" class="icon"> -->
+                <span>Hola, [AdminXXX]</span>
+            </div>
+        </header>
+
+
+        <!-- Menu barra horizontal -->
+        <nav>
+            <a href="dashboardAdmin.html">Dashboard</a>
+            <a href="listaEventos.html">Eventos</a>
+            <a href="crearEvento.html">Crear Evento</a>
+            <a href="index.html">Salir</a>
+            <a href="aprobacionEventos.html" id="approve-events-link">Aprobar Evento</a>
+            <a href="gestionUsuarios.html" id="manage-users-link">Gestión de Usuarios</a>
+        </nav> 
+
+        <!-- Contenido principal -->
+        <main>
+            <!-- Sección para crear un nuevo evento -->
+            <section class="create-event"> 
+                <h2>Editar Evento</h2>
+
+                <!-- Formulario para ingresar los datos del evento -->
+                <form id="eventForm">
+                    
+                    <!-- Campo para ingresar el título del evento -->
+                    <label class="contform__label"> Título del Evento:</label>
+                    <input class="contform__imput" type="text" id="eventTitle" name="title" placeholder="Título del Evento" required>
+
+                    <!-- Campo para ingresar la descripción del evento -->
+                    <label class="contform__label"> Descripción:</label>
+                    <textarea class="contform__imput" id="eventDescription" name="description" placeholder="Descripción del Evento" required></textarea>
+
+                    <!-- Campo para seleccionar la hora inicio del evento -->
+                    <label class="contform__label"> Hora de Inicio:</label>
+                    <input class="contform__imput" type="time" id="eventHourStarting" name="hourStarting" required>
+
+                    <!-- Campo para seleccionar la hora fin del evento -->
+                    <label class="contform__label"> Hora de Fin:</label>
+                    <input class="contform__imput" type="time" id="eventHourEnding" name="hourEnding" required>
+
+                    <!-- Campo para ingresar la ubicación del evento -->
+                    <label class="contform__label"> Ubicación:</label>
+                    <input class="contform__imput" type="text" id="eventLocation" name="location" placeholder="Ubicación del Evento" required>
+
+                    <!-- Campo para seleccionar el estado del evento (pendiente o confirmado) -->
+                    <!-- <label class="contform__label"> Estado:</label>
+                    <select class="contform__imput__select" id="eventStatus" name="status" required>
+                        <option value="" disabled selected>Selecciona un estado</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="confirmado">Aprobado</option>
+                        <option value="confirmado">Rechazado</option>
+                    </select> -->
+
+                    <!-- Campo para seleccionar la categoría del evento -->
+                    <label class="contform__label"> Categoría:</label>
+                    <select class="contform__imput__select" id="eventCategory" name="category" required>
+                        <option value="" disabled selected>Selecciona una Categoria</option>
+                        <option value="estudiantes">estudiantes</option>
+                        <option value="profesores">profesores</option>
+                        <option value="comunidad universitaria">comunidad universitaria</option>
+                    </select>
+
+                    <!-- Campo para seleccionar la fecha del evento -->
+                    <label class="contform__label"> Fecha:</label>
+                    <input class="contform__imput" type="date" id="eventDate" name="date" required>
+
+                    <!-- Campo para ingresar el enlace de registro -->
+                    <label class="contform__label"> Enlace de Registro:</label>
+                    <input class="contform__imput" type="url" id="eventRegisterLink" name="registerLink" required>
+
+
+                    <!-- Campo para cargar una imagen relacionada con el evento -->
+                    <!-- <label class="contform__label"> Imagen:</label>
+                    <input class="contform__imput" type="file" id="eventImage" name="image" required> -->
+                    <!-- Campo para cargar una imagen relacionada con el evento -->
+                    <label class="contform__label"> Imagen:</label>
+                    <input class="contform__imput" type="file" id="eventImage" name="image" required>
+                    <div id="imagePreviewContainer"></div> <!-- Contenedor para la vista previa de la imagen -->
+
+
+                    <!-- Botones para enviar o cancelar el formulario -->
+                    <!-- Botones para enviar o cancelar el formulario -->
+                    <button type="submit">Guardar</button>
+                    <button type="button" id="cancelButton">Cancelar</button>
+                </form>
+            </section>
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 PERU Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Contacto</a> | <a href="#">Ayuda</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

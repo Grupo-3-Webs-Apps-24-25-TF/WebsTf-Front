@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Evento</title>
+    <link rel="stylesheet" href="/style/detallesEventos.css">
+    <script src="js/vistasUsuarios.js"></script>
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+
+        <!-- Encabezado -->
+        <header>
+            <div class="header-left">
+                <h1>Detalles del Evento</h1>
+            </div>
+            <div class="header-right">
+                <!-- <img src="assets/notification1.svg" alt="Notificaciones" class="icon">
+                <img src="assets/profile1.svg" alt="Perfil" class="icon">
+                <img src="assets/settings1.svg" alt="Configuración" class="icon"> -->
+                <span>Hola, [Administrador]</span>
+            </div>
+        </header>
+
+        <!-- Menu barra horizontal -->
+        <nav>
+            <a href="dashboardAdmin.html">Dashboard</a>
+            <a href="listaEventos.html">Eventos</a>
+            <a href="crearEvento.html">Crear Evento</a>
+            <a href="index.html">Salir</a>
+            <a href="aprobacionEventos.html" id="approve-events-link">Aprobar Evento</a>
+            <a href="gestionUsuarios.html" id="manage-users-link">Gestión de Usuarios</a>
+        </nav> 
+
+        <!-- Contenido principal -->
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="event-details-container"></div>
+
+        <script src="js/detallesEvento.js"></script>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 PERU Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Contacto</a> | <a href="#">Ayuda</a>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

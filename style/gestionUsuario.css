@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario-purple-dark: #656ED3;
+    --color-secundario-purple-light: #afb3ff;
+    --color-terceario-white: #e5e5e5;
+    --color-nav-bg: #EBEFFF;
+    --color-footer-bg: #595C98;
+}
+
+::selection {
+    background-color: var(--color-primario-purple-dark);
+    color: var(--color-secundario-purple-light);
+}
+
+
+
+/* Estilos para la pgina web */
+
+
+/* Estilos generales */
+body {
+    font-family: "SanFrancisco__Regular", sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    background-color: var(--color-terceario-white);
+}
+
+/* Contenedor principal */
+.container {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--color-secundario-purple-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #FFFFFF;
+}
+
+header .icon {
+    width: 24px;
+    margin-left: 10px;
+}
+
+/* Menu barra de navegación */
+nav {
+    background-color: var(--color-nav-bg);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+nav a {
+    font-family: "SanFrancisco__Regular", sans-serif;
+    text-decoration: none;
+    color: var(--color-primario-purple-dark);
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--color-secundario-purple-light);
+    border-radius: 5px;
+}
+
+/* Contenido principal */
+main {
+    flex: 1;
+    background-color: var(--color-nav-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    font-family: "sanFrancisco__bold";
+    letter-spacing: .2em;
+}
+button {
+    color: var(--color-secundario-purple-light);
+    background-color: var( --color-primario-purple-dark);
+    padding: 1em 4em 1em 4em;
+    border-radius: 1.6em;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+button:hover {
+    color: var( --color-primario-purple-dark);
+    background-color: var(--color-secundario-purple-light);
+}
+
+.error-message {
+    color: red;
+    display: none;
+    margin: 1em;
+    font-family: "sanFrancisco__Regular";
+    text-align: center;
+}
+
+.filters{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.contform__imput__select {
+    width: 100%;
+    border: 1px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none; 
+}
+
+.contform__label {
+    margin-bottom: 1.4em;
+}
+
+.contform__imput {
+    width: 100%;
+    border: 1px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+}
+
+form, input, textarea, select, label {
+    font-size: inherit;
+    background-color: transparent;
+    display: block;
+}
+
+
+/* Pie de página */
+footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-terceario-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: var(--color-terceario-white);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Declaración de fuentes */
+@font-face {
+    font-family: "SanFrancisco__Bold";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Bold.otf) format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SanFrancisco__Regular";
+    src: url(../SanFrancisco/otf/SFNSDisplay-Regular.otf) format("opentype");
+    font-display: swap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fondo semitransparente del modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* asegura que el modal esté encima de otros elementos */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: var(--color-terceario-white); 
+    padding: 20px;
+    border-radius: 1.3em; 
+    width: 400px; 
+    max-width: 100%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    color: var(--color-primario-purple-dark); 
+}
+
+/* Títulos del modal */
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-family: "SanFrancisco__Bold", sans-serif;
+    color: var(--color-primario-purple-dark); 
+}
+
+/* Formulario dentro del modal */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content label {
+    font-size: 14px;
+    color: var(--color-primario-purple-dark); 
+    font-family: "SanFrancisco__Regular", sans-serif;
+}
+
+.modal-content input {
+    padding: 10px;
+    border: 1px solid var(--color-primario-purple-dark); 
+    border-radius: 1.3em;
+    font-size: 16px;
+    font-family: "SanFrancisco__Regular", sans-serif;
+}
+
+.modal-content .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Estilo para los botones */
+.modal-content .save-btn,
+.modal-content .cancel-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 1.6em;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "SanFrancisco__Bold", sans-serif;
+    transition: all .3s ease;
+}
+
+.save-btn {
+    background-color: var(--color-secundario-purple-light); 
+    color: var(--color-terceario-white); 
+}
+
+.cancel-btn {
+    background-color: var(--color-primario-purple-dark); 
+    color: var(--color-terceario-white); 
+}
+
+/* Efecto al pasar el mouse sobre los botones */
+.save-btn:hover {
+    background-color: var(--color-primario-purple-dark);
+    color: var(--color-secundario-purple-light);
+}
+
+.cancel-btn:hover {
+    background-color: var(--color-secundario-purple-light);
+    color: var(--color-primario-purple-dark);
+}
+
+
+
+
+
+
+
+
+
+
+/* Estilos básicos para la notificación */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primario-purple-dark); /* Fondo con el color primario */
+    color: var(--color-terceario-white); /* Texto blanco */
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Notificación de error */
+.notification.error {
+    background-color: var(--color-footer-bg); /* Fondo con el color de footer para errores */
+}
+
+/* Desvanecimiento de la notificación */
+.notification.fade-out {
+    opacity: 0;
+}
+
+

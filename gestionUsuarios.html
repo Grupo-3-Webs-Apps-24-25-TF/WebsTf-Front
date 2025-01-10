@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="style/gestionUsuario.css">
+    <script src="js/gestionUsuarios.js" defer></script>
+    <script src="js/vistasUsuarios.js"></script>
+</head>
+<body>
+    <!-- Contenedor principaal -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-left">
+                <h1>Gestión de Usuarios</h1>
+            </div>
+            <div class="header-icons">
+                <!-- <img src="assets/notification1.svg" alt="Notificaciones" class="icon">
+                <img src="assets/profile1.svg" alt="Perfil" class="icon">
+                <img src="assets/settings1.svg" alt="Configuración" class="icon"> -->
+                <span>Hola, [AdminXXX]</span>
+            </div>
+        </header>
+
+
+        <!-- Menu barra horizontal -->
+        <nav>
+            <a href="dashboardAdmin.html">Dashboard</a>
+            <a href="listaEventos.html">Eventos</a>
+            <a href="crearEvento.html">Crear Evento</a>
+            <a href="aprobacionEventos.html" id="approve-events-link">Aprobar Evento</a>
+            <a href="gestionUsuarios.html" id="manage-users-link">Gestión de Usuarios</a>
+            <a href="index.html" id="logout-button">Salir</a>
+        </nav> 
+
+        <!-- Contenido principal -->
+        <main>
+            <section class="user-management">
+                <h2>Gestión De Usuarios</h2>
+                <!-- Buscador y Filtros -->
+                <div class="filters">
+                    <div>
+                        <label class="contform__label" for="username">Nombre de Usuario:</label>
+                        <input class="contform__imput" type="text" id="username" placeholder="Búsqueda de Usuarios...">
+                    </div>
+                    <div>
+                        <label class="contform__label">Roles:</label>
+                        <select class="contform__imput__select" id="Categoria" >
+                            <option value="" disabled selected>Selecciona una Categoria</option>
+                            <option value="Estudiante">Estudiante</option>
+                            <option value="Profesor">Profesor</option>
+                            <option value="Coordinador">Coordinador</option>
+                            <option value="Dirección">Dirección</option>
+                        </select>
+                    </div>
+                    <!-- <div>
+                        <label for="estado">Estado:</label>
+                        <select id="estado">
+                            <option>Selecciona una opción</option>
+                        </select>
+                    </div> -->
+                </div>
+                <div><button id="searchUser">Buscar Usuario</button></div>
+                
+                <!-- Mensajes dinamicos -->
+                <div id="error-message" class="error-message" aria-live="polite"></div>
+                <div id="loading-spinner" class="spinner" style="display: none;">Cargando...</div>
+
+                <!-- Contenedor de Tarjetas -->
+                <div class="cards-container" id="cards-container">
+                    <!-- -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 PERU Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Contacto</a> | <a href="#">Ayuda</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

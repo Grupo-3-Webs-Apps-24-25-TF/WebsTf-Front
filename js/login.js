@@ -21,9 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (response.ok) {
                 const result = await response.json();
-                localStorage.setItem("role", result.role);
+
                 localStorage.setItem("token", result.token);
-                window.location.href = "register.html";
+
+                if (result.role == "Usuario") {
+                    window.location.href = "dashboardUser.html";
+                } else {
+                    window.location.href = "dashboardAdmin.html";
+                }
             } else {
                 const error = await response.json();
                 showError(`Error: ${error.message}`);
