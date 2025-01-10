@@ -70,8 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
         const resetMessage = document.getElementById('reset-message');
         if (response.ok) {
-            resetMessage.textContent = 'Contraseña actualizada con éxito.';
-            resetMessage.style.display = 'block';
+            window.location.href = "index.html";
         } else {
             resetMessage.textContent = data.message || 'Error al actualizar la contraseña.';
             resetMessage.style.display = 'block';
