@@ -28,12 +28,23 @@
 
         <!-- Menu barra horizontal -->
         <nav>
-            <a href="dashboardAdmin.html">Dashboard</a>
+            <a id="dashboardLink">Dashboard</a>
+            <script>
+                document.getElementById("dashboardLink").addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita que el enlace redirija inmediatamente
+                    const role = localStorage.getItem("role");
+                    if (role == "Usuario") { 
+                        window.location.href = "dashboardUser.html";
+                    } else {
+                        window.location.href = "dashboardAdmin.html";
+                    }
+                });
+            </script>
             <a href="listaEventos.html">Eventos</a>
             <a href="crearEvento.html">Crear Evento</a>
-            <a href="index.html">Salir</a>
             <a href="aprobacionEventos.html" id="approve-events-link">Aprobar Evento</a>
             <a href="gestionUsuarios.html" id="manage-users-link">Gestión de Usuarios</a>
+            <a href="index.html" id="logout-button">Salir</a>
         </nav> 
 
         <!-- Barra de Búsqueda -->
