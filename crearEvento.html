@@ -9,104 +9,73 @@
     <script src="js/vistasUsuarios.js"></script>
 </head>
 <body>
-    <!-- Contenedor principaal -->
     <div class="container">
-        <!-- Header -->
         <header>
             <div class="header-left">
                 <h1>Creación de Eventos</h1>
             </div>
             <div class="header-icons">
-                <!-- <img src="assets/notification1.svg" alt="Notificaciones" class="icon"> -->
-                <!-- <img src="assets/profile1.svg" alt="Perfil" class="icon"> -->
-                <!-- <img src="assets/settings1.svg" alt="Configuración" class="icon"> -->
                 <span>Hola, [AdminXXX]</span>
             </div>
         </header>
 
-
-        <!-- Menu barra horizontal -->
         <nav>
-            <a href="dashboardAdmin.html">Dashboard</a>
+            <a id="dashboardLink">Dashboard</a>
             <a href="listaEventos.html">Eventos</a>
             <a href="crearEvento.html">Crear Evento</a>
-            <a href="index.html">Salir</a>
             <a href="aprobacionEventos.html" id="approve-events-link">Aprobar Evento</a>
             <a href="gestionUsuarios.html" id="manage-users-link">Gestión de Usuarios</a>
+            <a href="index.html" id="logout-button">Salir</a>
         </nav> 
 
-        <!-- Contenido principal -->
         <main>
-            <!-- Sección para crear un nuevo evento -->
             <section class="create-event"> 
                 <h2>Crear un Nuevo Evento</h2>
 
-                <!-- Formulario para ingresar los datos del evento -->
                 <form id="eventForm">
-                    
-                    <!-- Campo para ingresar el título del evento -->
                     <label class="contform__label"> Título del Evento:</label>
-                    <input class="contform__imput" type="text" id="eventTitle" name="title" required>
+                    <input class="contform__imput" type="text" id="eventTitle" name="Title" required>
 
-                    <!-- Campo para ingresar la descripción del evento -->
                     <label class="contform__label"> Descripción:</label>
-                    <textarea class="contform__imput" id="eventDescription" name="description" required></textarea>
+                    <textarea class="contform__imput" id="eventDescription" name="Description" required></textarea>
 
-                    <!-- Campo para seleccionar la hora inicio del evento -->
                     <label class="contform__label"> Hora de Inicio:</label>
-                    <input class="contform__imput" type="time" id="eventHourStarting" name="hourStarting" required>
+                    <input class="contform__imput" type="time" id="eventHourStarting" name="HourStarting" required>
 
-                    <!-- Campo para seleccionar la hora fin del evento -->
                     <label class="contform__label"> Hora de Fin:</label>
-                    <input class="contform__imput" type="time" id="eventHourEnding" name="hourEnding" required>
+                    <input class="contform__imput" type="time" id="eventHourEnding" name="HourEnding" required>
 
-                    <!-- Campo para ingresar la ubicación del evento -->
                     <label class="contform__label"> Ubicación:</label>
-                    <input class="contform__imput" type="text" id="eventLocation" name="location" required>
+                    <input class="contform__imput" type="text" id="eventLocation" name="Location" required>
 
-                    <!-- Campo para seleccionar el estado del evento (pendiente o confirmado) -->
-                    <!-- <label class="contform__label"> Estado:</label>
-                    <select class="contform__imput__select" id="eventStatus" name="status" required>
-                        <option value="" disabled selected>Selecciona un estado</option>
-                        <option value="pendiente">Pendiente</option>
-                        <option value="confirmado">Confirmado</option>
-                    </select> -->
-
-                    <!-- Campo para seleccionar la categoría del evento () -->
                     <label class="contform__label"> Categoría:</label>
-                    <select class="contform__imput__select" id="eventCategory" name="category" required>
+                    <select class="contform__imput__select" id="eventCategory" name="Category" required>
                         <option value="" disabled selected>Selecciona una Categoria</option>
                         <option value="estudiantes">estudiantes</option>
                         <option value="profesores">profesores</option>
                         <option value="comunidad universitaria">comunidad universitaria</option>
                     </select>
 
-                    <!-- Campo para seleccionar la fecha del evento -->
                     <label class="contform__label"> Fecha:</label>
-                    <input class="contform__imput" type="date" id="eventDate" name="date" required>
+                    <input class="contform__imput" type="date" id="eventDate" name="Date" required>
 
-                    <!-- Campo para ingresar el enlace de registro -->
                     <label class="contform__label"> Enlace de Registro:</label>
-                    <input class="contform__imput" type="url" id="eventRegisterLink" name="registerLink" required>
+                    <input class="contform__imput" type="url" id="eventRegisterLink" name="RegisterLink" required>
 
 
-                    <!-- Campo para cargar una imagen relacionada con el evento -->
                     <label class="contform__label"> Imagen:</label>
-                    <input class="contform__imput" type="file" id="eventImage" name="image" required>
+                    <input class="contform__imput" type="file" id="eventImage" name="Image">
 
-                    <!-- Botones para enviar o cancelar el formulario -->
                     <button type="submit">Crear</button>
                     <button type="reset">Cancelar</button>
                 </form>
             </section>
         </main>
 
-
-        <!-- Footer -->
         <footer>
             <p>&copy; 2024 PERU Todos los derechos reservados.</p>
             <div class="footer-links">
-                <a href="#">Contacto</a> | <a href="#">Ayuda</a>
+                <a>Contacto</a> | <a>Ayuda</a>
             </div>
         </footer>
     </div>
