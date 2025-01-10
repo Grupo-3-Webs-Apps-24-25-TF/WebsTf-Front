@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const headerSpan = document.querySelector('.header-right span');
             headerSpan.textContent = `Hola, ${result.user.name}`;
+            // Lo guarda para los demás archivos
+            localStorage.setItem("name", result.user.name);
         } else {
             console.error(`Error ${error.message}:`);
         }
