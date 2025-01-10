@@ -64,8 +64,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return category ? eventCategory.includes(category.toLowerCase()) : true;
             });
             
-            console.log(filteredEvents);
-
             // Actualizar el texto dependiendo de tu categoría
             const paragraph = document.getElementById('eventCount');
             paragraph.textContent = `Próximos eventos de categoría ${category}: ${filteredEvents.length}`;

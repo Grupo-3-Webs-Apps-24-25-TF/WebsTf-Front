@@ -29,7 +29,9 @@
     display: flex;
     flex-wrap: wrap; /* Permite que las tarjetas se muevan a una nueva línea si no caben */
     gap: 20px; /* Espaciado entre las tarjetas */
-    justify-content: flex-start; /* Alinea las tarjetas al principio del contenedor */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    align-items: center; /* Centra las tarjetas verticalmente */
+    min-height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la ventana */
 }
 
 .event-card {
@@ -37,7 +39,7 @@
     background-color: #f9f9f9; /* Fondo suave */
     border: 1px solid #ddd; /* Borde gris claro */
     border-radius: 8px; /* Bordes redondeados */
-    margin: 20px 20px 20px 20px; /* Márgenes: 10px arriba, 20px en los lados, 20px abajo */
+    margin: 20px; /* Márgenes: 20px en todos los lados */
     padding: 15px; /* Espaciado interno */
     max-width: 300px; /* Ancho máximo */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -47,11 +49,13 @@
 .event-card:hover {
     transform: translateY(-8px); /* Eleva la tarjeta al pasar el ratón */
 }
+
 .event-card .event-details h3 {
     font-size: 1.5em;
     color: #333;
     margin-bottom: 10px;
 }
+
 
 /* Estilos generales */
 body {
