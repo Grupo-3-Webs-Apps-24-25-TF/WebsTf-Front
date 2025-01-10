@@ -93,7 +93,7 @@ section {
 
 
 button {
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 3em;
@@ -101,6 +101,16 @@ button {
     font-family: "sanFrancisco__bold";
     letter-spacing: .2em;
 }
+button .ssearch-button{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    font-family: "sanFrancisco__bold";
+    letter-spacing: .2em;
+}
+
 button {
     color: var(--color-secundario-purple-light);
     background-color: var( --color-primario-purple-dark);
@@ -152,4 +162,26 @@ footer a:hover {
     font-family: "SanFrancisco__Regular";
     src: url(../SanFrancisco/otf/SFNSDisplay-Regular.otf) format("opentype");
     font-display: swap;
+}
+
+
+
+.label1{
+    margin-bottom: 0.4em;
+    margin-top: 0.8em;
+}
+
+.contform__imput {
+    border: 1px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+}
+
+.contform__imput__select {
+    border: 1px solid var(--color-primario-purple-dark);
+    border-radius: 1.3em;
+    padding: .8em 1.6em .8em 1.6em;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none; 
 }
