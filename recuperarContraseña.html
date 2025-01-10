@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="style/register.css">
+    <script src="js/recuperarContraseña.js" defer></script>
+</head>
+<body>
+    <div class="animation__cinco">
+        <div class="cont__inside">
+            <span class="continside__login">Recuperar Contraseña</span>
+
+            <!-- Formulario de Envío de Código -->
+            <div id="email-form">
+                <form autocomplete="off" id="sendCodeForm">
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Correo electrónico" type="email" id="Email" required>
+                    </label>
+                    <button class="contform__login" type="submit">
+                        <span class="contformlogin__div">
+                            Enviar Código
+                        </span>
+                    </button>
+                    <p id="email-message" class="error-message"></p>
+                </form>
+            </div>
+
+            <!-- Formulario de Verificación del Código -->
+            <div id="verify-code-form" style="display: none;">
+                <form autocomplete="off" id="verifyCodeForm">
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Código de verificación" type="text" id="VerificationCode" required autocomplete="off">
+                    </label>
+                    <button class="contform__login" type="submit">
+                        <span class="contformlogin__div">
+                            Verificar Código
+                        </span>
+                    </button>
+                    <p id="verify-message" class="error-message"></p>
+                </form>
+            </div>
+
+            <!-- Formulario de Actualización de Contraseña -->
+            <div id="reset-password-form" style="display: none;">
+                <form autocomplete="off" id="resetPasswordForm">
+                    <label class="contform__label">
+                        <input class="contform__imput" placeholder="Nueva Contraseña" type="password" id="Password" required>
+                    </label>
+                    <button class="contform__login" type="submit">
+                        <span class="contformlogin__div">
+                            Actualizar Contraseña
+                        </span>
+                    </button>
+                    <p id="reset-message" class="error-message"></p>
+                </form>
+            </div>
+
+            <p class="contform__links">
+                Volver al Login
+                <a class="contformlinks__login" href='index.html'>Inicia Sesión</a>
+            </p>
+        </div>
+        <div class="cont__inside continside__none">
+            <div class="cont__inside__img"></div>
+        </div>
+    </div>
+
+    <!-- <script src="js/script.js"></script> -->
+</body>
+</html>
