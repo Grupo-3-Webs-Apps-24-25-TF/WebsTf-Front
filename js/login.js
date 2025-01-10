@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const result = await response.json();
 
                 localStorage.setItem("token", result.token);
+                localStorage.setItem("role", result.role);
 
                 if (result.role == "Usuario") {
                     window.location.href = "dashboardUser.html";
