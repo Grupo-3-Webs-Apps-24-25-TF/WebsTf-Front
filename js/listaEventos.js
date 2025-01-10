@@ -1,9 +1,38 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    const API_URL = "https://www.amoamel.com/web/api";
+
+    const token = localStorage.getItem("token");
+    let role;
+
+    try {
+        const response = await fetch(API_URL + "/users/myUser", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            }
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            role = result.user.role;
+
+            const welcomeMessage = document.querySelector('h2');
+            welcomeMessage.textContent = `¡Bienvenido de nuevo, ${result.user.name}!`;
+
+            const headerSpan = document.querySelector('.header-icons span');
+            headerSpan.textContent = `Hola, ${result.user.name}`;
+        } else {
+            console.error(`Error ${error.message}:`);
+        }
+    } catch (error) {
+        console.error("Error al realizar la solicitud:", error);
+    }
+    
     const userRole = localStorage.getItem('role'); // Ejemplo: "Administrador" o "Usuario"
     const userId = localStorage.getItem('userId'); // ID del usuario actual (se debe guardar en localStorage)
 
     const BASE_API_URL = "https://www.amoamel.com/web/api/events";
-    const token = localStorage.getItem("token");
     updateWelcomeMessage();
     
     const searchButton = document.querySelector('.search-button');
@@ -177,6 +206,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error('El elemento .search-button no se encuentra en el DOM.');
     }
+
+    document.getElementById("dashboardLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        if (role == "Usuario") { 
+            window.location.href = "dashboardUser.html";
+        } else {
+            window.location.href = "dashboardAdmin.html";
+        }
+    });
 });
 
 // Función para guardar el ID del evento
