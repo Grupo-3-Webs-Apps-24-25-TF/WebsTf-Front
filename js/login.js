@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (result.role == "Usuario") {
                     window.location.href = "dashboardUser.html";
                 } else {
-                    window.location.href = "dashboardAdmin.html";
+                    window.location.href = "dashboarAdmin.html";
                 }
             } else {
                 const error = await response.json();
