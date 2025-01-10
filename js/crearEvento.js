@@ -107,6 +107,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
+    document.getElementById("dashboardLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        if (role == "Usuario") { 
+            window.location.href = "dashboardUser.html";
+        } else {
+            window.location.href = "dashboardAdmin.html";
+        }
+    });
+
     const logoutButton = document.getElementById('logout-button');
 
     logoutButton.addEventListener("click", (event) => {
