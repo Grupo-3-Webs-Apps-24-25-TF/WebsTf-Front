@@ -74,6 +74,7 @@ nav a {
 nav a:hover {
     background-color: var(--color-secundario-purple-light);
     border-radius: 5px;
+    text-decoration: none;
 }
 
 /* Contenido principal */
@@ -93,7 +94,7 @@ section {
 
 
 button {
-    width: 100%;
+    width: 30%;
     display: flex;
     justify-content: center;
     margin-top: 3em;
@@ -150,4 +151,131 @@ footer a:hover {
     font-family: "SanFrancisco__Regular";
     src: url(../SanFrancisco/otf/SFNSDisplay-Regular.otf) format("opentype");
     font-display: swap;
+}
+
+
+
+
+/* Estilos específicos para los detalles del evento */
+
+/* Contenedor principal de detalles del evento */
+#event-details {
+    font-family: Arial, sans-serif;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #EBEFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Título del evento */
+#event-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-primario-purple-dark);
+    margin-bottom: 20px;
+}
+
+/* Sección de información del evento */
+.event-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* Caja de información izquierda */
+.info-left, .info-right {
+    width: 48%;
+    
+}
+
+.info-left p, .info-right p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Caja de descripción y detalles */
+.details-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Caja individual para cada sección */
+.box {
+    flex: 1 1 300px; /* Flexibilidad para que las cajas se ajusten */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Añadido margen superior para separación */
+}
+
+/* Títulos dentro de las cajas */
+.box h3 {
+    font-size: 1.25rem;
+    color: var(--color-primario-purple-dark);
+    margin-bottom: 15px;
+}
+
+/* Estilo para las imágenes */
+#event-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Estilo para el mensaje de error cuando no se carga la imagen */
+#no-image-message {
+    font-size: 1rem;
+    color: red;
+    margin-top: 10px;
+}
+
+/* Estilo para los enlaces */
+a {
+    color: var(--color-primario-purple-dark);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el código QR */
+#event-qr {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Estilo para las cajas con margen */
+.box + .box {
+    margin-top: 20px;
+}
+
+/* En pantallas más grandes (por ejemplo, tabletas y escritorios) */
+@media (min-width: 769px) {
+    .event-info {
+        justify-content: space-between;
+    }
+
+    .info-left, .info-right {
+        width: 48%; /* Mantiene el diseño lado a lado */
+    }
+
+    .details-section {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .box {
+        flex: 1 1 300px; /* Las cajas ocupan 300px de ancho mínimo */
+    }
 }
